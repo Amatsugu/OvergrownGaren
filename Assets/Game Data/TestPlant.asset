@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c209d19040e60344a78d48e42f68d07, type: 3}
+  m_Name: TestPlant
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4371213790100000826, guid: 0f588062be0b8eb44a395f581e090652, type: 3}
+  maxAge: 2
+  yield: 0
+  unitCost: 0
+  unitSell: 0
