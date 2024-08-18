@@ -26,6 +26,9 @@ namespace Building
             }
             
             GameManager.Events.OnBalconyUnlocked += OnBalconyUnlocked;
+
+			foreach (var b in allBalconies)
+				b.Init();
         }
 
         private void OnDestroy()
@@ -33,8 +36,9 @@ namespace Building
             // GameManager.Events.OnBalconyUnlocked -= OnBalconyUnlocked;
         }
 
-        private void OnBalconyUnlocked(BalconyData balconyData)
-        {
+		private void OnBalconyUnlocked(BalconyData balconyData)
+		{
+			Debug.Log($"Unlocking {balconyData.view.name}", balconyData.view);
             var sourceBalconyView = _balconiesMap[balconyData];
             
             FindBalconyAndTryToMarkItReadyToUnlock(sourceBalconyView.transform, Vector2.up);
@@ -50,6 +54,7 @@ namespace Building
 				return;
             var hitBalcony = hit.collider.GetComponentInParent<BalconyView>();
 
+			Debug.Log(hit.collider);
             if (hitBalcony)
             {
                 GameManager.BalconiesService.MarkReadyToUnlock(hitBalcony.Data.Id);

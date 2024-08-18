@@ -37,16 +37,21 @@ namespace Balconies
                 planterBoxView.Bind(planterBoxData);
             }
 
-            if (_readyToUnlockByDefault)
-            {
-                GameManager.BalconiesService.MarkReadyToUnlock(data.Id);
-            }
-
-            if (_isUnlockedByDefault)
-            {
-                GameManager.BalconiesService.UnlockBalcony(data.Id);
-            }
+           
         }
+
+		public void Init()
+		{
+			if (_readyToUnlockByDefault)
+			{
+				GameManager.BalconiesService.MarkReadyToUnlock(Data.Id);
+			}
+
+			if (_isUnlockedByDefault)
+			{
+				GameManager.BalconiesService.UnlockBalcony(Data.Id);
+			}
+		}
 
 
         private void OnBalconyUnlocked()

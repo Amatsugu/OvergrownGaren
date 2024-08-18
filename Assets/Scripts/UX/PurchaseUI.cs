@@ -1,3 +1,7 @@
+using Balconies;
+
+using Building;
+
 using System.Collections;
 using System.Collections.Generic;
 
@@ -14,6 +18,13 @@ public class PurchaseUI : UIHover
 	protected override void Start()
 	{
 		base.Start();
+		GameManager.Events.OnBalconyUnlocked += OnBalconyUnlocked;
+	}
+
+	private void OnBalconyUnlocked(BalconyData _)
+	{
+		ClearDisplays();
+		ShowDisplays();
 	}
 
 	// Update is called once per frame
@@ -31,6 +42,20 @@ public class PurchaseUI : UIHover
 
 	private void ShowPurchaseDisplays()
 	{
+		ShowDisplays();
+		_isPurchasing = true;
+	}
+
+
+
+	private void HidePurchaseDisplays()
+	{
+		ClearDisplays();
+		_isPurchasing = false;
+	}
+
+	private void ShowDisplays()
+	{
 		var availableBalonies = GameManager.BalconiesService.ReadyToUnlockBalconies;
 		foreach (var balcony in availableBalonies)
 		{
@@ -40,14 +65,12 @@ public class PurchaseUI : UIHover
 			display.Show(balcony.view);
 			_purchaseDisplays.Add(display);
 		}
-		_isPurchasing = true;
 	}
 
-	private void HidePurchaseDisplays()
+	private void ClearDisplays()
 	{
 		foreach (var d in _purchaseDisplays)
 			Destroy(d.gameObject);
 		_purchaseDisplays.Clear();
-		_isPurchasing = false;
 	}
 }

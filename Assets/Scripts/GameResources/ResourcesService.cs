@@ -46,6 +46,12 @@ namespace GameResources
             return true;
         }
         
+		public void SpendResources(ResourceIdentifier[] resources)
+		{
+			foreach (var res in resources)
+				SpendResource(res);
+		}
+
         public bool SpendResource(ResourceIdentifier resource)
         {
             if (resource < 0)

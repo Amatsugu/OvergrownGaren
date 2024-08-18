@@ -9,10 +9,22 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public class PurchaseDisplay : UIHover
 {
 	public Image Image;
 	public TextMeshProUGUI text;
+
+	private BalconyView _view;
+	private Button _button;
+
+	protected override void Awake()
+	{
+		_button = GetComponent<Button>();
+		GameManager.Events.OnResourcesAdded += OnResourceChanged;
+		GameManager.Events.OnResourcesSpent += OnResourceChanged;
+	}
+
 	protected override void Update()
 	{
 		base.Update();
@@ -20,13 +32,31 @@ public class PurchaseDisplay : UIHover
 
 	public void Show(BalconyView balcony)
 	{
+		_view = balcony;
+		
 		var sb = new StringBuilder();
 		SetActive(true);
 		foreach (var res in balcony._buildCost)
 			sb.AppendLine(res.ToString());
 		text.SetText(sb);
 		rTransform.position = balcony.transform.position;
+		_button.onClick.AddListener(() =>
+		{
+			if (!GameManager.ResourcesService.IsEnough(balcony._buildCost))
+				return;
+			GameManager.ResourcesService.SpendResources(balcony._buildCost);
+			GameManager.BalconiesService.UnlockBalcony(balcony.Data.Id);
+		});
+
+		_button.interactable = GameManager.ResourcesService.IsEnough(_view._buildCost);
 	}
+
+	void OnResourceChanged(ResourceIdentifier _, int __)
+	{
+		_button.interactable = GameManager.ResourcesService.IsEnough(_view._buildCost);
+
+	}
+
 
 	public void Hide()
 	{
