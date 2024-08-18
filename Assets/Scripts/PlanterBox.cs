@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using System.Reflection;
 using UnityEditor;
 
 using UnityEngine;
@@ -13,7 +13,7 @@ public class PlanterBox : MonoBehaviour
 	public Transform planterSlot;
 
 	private Plant _crop;
-
+	
 	public void Plant(PlantDefination plant)
 	{
 		GameManager.Events.InvokeOnCropPlanted(plant);
@@ -29,6 +29,11 @@ public class PlanterBox : MonoBehaviour
 		_crop.GetHarvest();
 		GameManager.Events.InvokeOnCropHarvested(_crop.plant);
 		Destroy(_crop.gameObject);
+	}
+
+	public bool IsAvailableForPlant()
+	{
+		return !_crop;
 	}
 
 

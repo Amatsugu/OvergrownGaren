@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+using Resources;
 using UnityEngine;
 
 public class GameEvents
@@ -19,6 +19,9 @@ public class GameEvents
 	public event Action<object> OnItemAquired;
 
 	public event Action<int> OnMoneyAquired;
+
+	public event Action<ResourceType, int, int> OnResourcesAdded; 
+	public event Action<ResourceType, int, int> OnResourcesSpent; 
 
 	public void InvokeOnCropHarvested(PlantDefination plant)
 	{
@@ -53,5 +56,15 @@ public class GameEvents
 	public void InvokeOnMoneyAquired(int amount)
 	{
 		OnMoneyAquired?.Invoke(amount);
+	}
+
+	public void InvokeResourcesAdded(ResourceType type, int amountAdded, int amountTotal)
+	{
+		OnResourcesAdded?.Invoke(type, amountAdded, amountTotal);
+	}
+	
+	public void InvokeResourcesSpent(ResourceType type, int amountSpent, int amountTotal)
+	{
+		OnResourcesSpent?.Invoke(type, amountSpent, amountTotal);
 	}
 }

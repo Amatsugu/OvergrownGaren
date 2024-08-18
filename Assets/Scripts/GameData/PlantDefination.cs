@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
-
+using Resources;
 using UnityEngine;
 
 
@@ -14,6 +13,7 @@ public class PlantDefination : ScriptableObject
 	public int yield;
 	public float unitCost;
 	public float unitSell;
+	public ResourceType ResourceType;	//
 
 	public Plant CreatePlant(Transform location)
 	{
