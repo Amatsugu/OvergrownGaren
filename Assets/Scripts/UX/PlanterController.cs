@@ -1,7 +1,9 @@
+using Resources;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+using System.Linq;
 
 using UnityEngine;
 
@@ -19,7 +21,9 @@ public class PlanterController : MonoBehaviour
 	public PlantDefination[] plants;
 
 	public PlantDefination testPlant;
-	
+
+
+	private Dictionary<ResourceType, List<ResourceType>> _seedLookup;
 	// Update is called once per frame
 	private void Update()
 	{
@@ -33,6 +37,11 @@ public class PlanterController : MonoBehaviour
 			case UIState.PlanterBox:
 				break;
 		}
+	}
+
+	private void Awake()
+	{
+		_seedLookup = new Dictionary<ResourceType, List<ResourceType>>();
 	}
 
 	private void ProcessPlanterSelection()
@@ -56,7 +65,10 @@ public class PlanterController : MonoBehaviour
 				planter.Crop.Water(5);
 		}else
 			planter.Plant(testPlant);
+	}
 
+	public ResourceType[] GetSeedsFor(ResourceType resource)
+	{
 
 	}
 }

@@ -18,6 +18,6 @@ MonoBehaviour:
   rewards:
   - type: 0
     qty: 3
-  - type: 2
+  - type: 3
     qty: 3
   rewardUnlocks: 00000000

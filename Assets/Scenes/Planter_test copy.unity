@@ -4843,7 +4843,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  plants: []
+  plants:
+  - {fileID: 11400000, guid: 3d1b3bec21eb2e446ad1d48ae15368a7, type: 2}
   testPlant: {fileID: 11400000, guid: 3d1b3bec21eb2e446ad1d48ae15368a7, type: 2}
 --- !u!114 &1117811789
 MonoBehaviour:
@@ -4860,6 +4861,7 @@ MonoBehaviour:
   dryRate: 0.5
   baseGrowthRate: 0.23
   weedChance: 0.2
+  defaultUnlocks: 01000000
   _buildingView: {fileID: 1885283853}
 --- !u!114 &1117811790
 MonoBehaviour:

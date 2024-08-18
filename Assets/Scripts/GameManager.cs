@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 	public static BalconiesService BalconiesService => INST._balconiesService;
 	public static TimeController TimeController => INST._timeController;
 	public static ShopUnlocks Unlocks => INST._shopUnlocks;
+	public static PlanterController PlanterController => INST._planterController;
 
 	public static GameManager INST
 	{
@@ -43,10 +44,12 @@ public class GameManager : MonoBehaviour
 	private readonly ShopUnlocks _shopUnlocks = new ();
 	private BalconiesService _balconiesService;
 	private TimeController _timeController;
+	private PlanterController _planterController;
 
 	private void Awake()
 	{
 		_timeController = GetComponent<TimeController>();
+		_planterController = GetComponent<PlanterController>();
 	}
 
 	private void Start()
