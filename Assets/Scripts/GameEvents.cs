@@ -17,6 +17,8 @@ public class GameEvents
 
 	public event Action<QuestDefination> OnQuestCompleted;
 
+	public event Action<int> OnDayStart;
+
 
 	public event Action<ResourceIdentifier, int> OnResourcesAdded;
 	public event Action<ResourceIdentifier, int> OnResourcesSpent;
@@ -66,5 +68,10 @@ public class GameEvents
 	public void InvokeBalconyReadyToUnlock(BalconyData balconyData)
 	{
 		OnBalconyReadyToUnlock?.Invoke(balconyData);
+	}
+
+	public void InvokeOnDayStart(int day)
+	{
+		OnDayStart?.Invoke(day);
 	}
 }

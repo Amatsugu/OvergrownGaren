@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
 	private GameEvents _events = new();
 	private readonly ResourcesService _resourcesService = new();
 	private BalconiesService _balconiesService;
+	private TimeController _timeController;
+
+	private void Awake()
+	{
+		_timeController = GetComponent<TimeController>();
+	}
 
 	private void Start()
 	{
