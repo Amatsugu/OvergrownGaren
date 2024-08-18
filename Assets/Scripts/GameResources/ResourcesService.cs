@@ -79,7 +79,17 @@ namespace GameResources
             return resource < data.Amount;
         }
 
-        public int GetAmount(ResourceType type)
+		public bool IsEnough(ResourceIdentifier[] resources)
+		{
+			foreach (var resource in resources)
+			{
+				if(!IsEnough(resource))
+					return false;
+			}
+			return true;
+		}
+
+		public int GetAmount(ResourceType type)
         {
             if (_resourcesMap.TryGetValue(type, out var data))
             {

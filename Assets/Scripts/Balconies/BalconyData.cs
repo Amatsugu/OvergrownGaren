@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using PlanterBoxes;
 
+using UnityEngine;
+
 namespace Balconies
 {
     public class BalconyData
@@ -9,7 +11,7 @@ namespace Balconies
         public event Action OnUnlocked;
         public event Action<bool> OnReadyToUnlockChanged;
         public event Action<PlanterBoxData> OnPlanterBoxAdded;
-
+		public BalconyView view;
         public int Id { get; set; }
         public bool IsUnlocked
         {

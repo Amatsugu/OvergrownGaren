@@ -6,7 +6,7 @@ namespace Balconies
 {
     public class BalconyView : MonoBehaviour
     {
-		public ResourceIdentifier _buildCost;
+		public ResourceIdentifier[] _buildCost;
         public bool _readyToUnlockByDefault;
         public bool _isUnlockedByDefault;
         
@@ -27,6 +27,7 @@ namespace Balconies
 		public void Bind(BalconyData data)
         {
             Data = data;
+			data.view = this;
             Data.OnUnlocked += OnBalconyUnlocked;
 
             var allPlanterBoxes = _planterBoxesContainer.GetComponentsInChildren<PlanterBoxView>(true);
