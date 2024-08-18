@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
 using Balconies;
+
 using Resources;
+
 using UnityEngine;
 
 public class GameEvents
@@ -19,11 +22,15 @@ public class GameEvents
 
 	public event Action<int> OnDayStart;
 
-
 	public event Action<ResourceIdentifier, int> OnResourcesAdded;
+
 	public event Action<ResourceIdentifier, int> OnResourcesSpent;
+
 	public event Action<BalconyData> OnBalconyUnlocked;
+
 	public event Action<BalconyData> OnBalconyReadyToUnlock;
+
+	public event Action<ResourceType> OnResourceTypeUnlocked;
 
 	public void InvokeOnCropHarvested(PlantDefination plant)
 	{
@@ -73,5 +80,10 @@ public class GameEvents
 	public void InvokeOnDayStart(int day)
 	{
 		OnDayStart?.Invoke(day);
+	}
+
+	public void InvokeOnResourceTypeUnlocked(ResourceType resource)
+	{
+		OnResourceTypeUnlocked?.Invoke(resource);
 	}
 }

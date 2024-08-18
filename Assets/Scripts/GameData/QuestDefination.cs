@@ -24,4 +24,14 @@ public class QuestDefination : ScriptableObject
 			sb.AppendLine(reward.ToString());
 		return sb;
 	}
+
+	public bool IsEligable()
+	{
+		foreach (var res in deliveryRequirments)
+		{
+			if (!GameManager.Unlocks.IsUnlocked(res.type))
+				return false;
+		}
+		return true;
+	}
 }

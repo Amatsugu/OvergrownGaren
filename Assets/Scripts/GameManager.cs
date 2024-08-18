@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 	public float dryRate = .5f;
 	public float baseGrowthRate = .5f;
 	public float weedChance = .2f;
+	public ResourceType[] defaultUnlocks;
+
 	public BuildingView _buildingView;
 
 	public static float DryRate => INST.dryRate;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
 	public static ResourcesService ResourcesService => INST._resourcesService;
 	public static BalconiesService BalconiesService => INST._balconiesService;
 	public static TimeController TimeController => INST._timeController;
+	public static ShopUnlocks Unlocks => INST._shopUnlocks;
 
 	public static GameManager INST
 	{
@@ -27,8 +30,6 @@ public class GameManager : MonoBehaviour
 			if (_instance == null)
 			{
 				_instance = FindFirstObjectByType<GameManager>();
-				_instance._events = new GameEvents();
-
 				return _instance;
 			}
 
@@ -37,8 +38,9 @@ public class GameManager : MonoBehaviour
 	}
 
 	private static GameManager _instance;
-	private GameEvents _events = new();
+	private readonly GameEvents _events = new();
 	private readonly ResourcesService _resourcesService = new();
+	private readonly ShopUnlocks _shopUnlocks = new ();
 	private BalconiesService _balconiesService;
 	private TimeController _timeController;
 
@@ -53,7 +55,9 @@ public class GameManager : MonoBehaviour
 		var buildingData = new BuildingData();
 		_resourcesService.AddResources((ResourceType.Coins, 1000), (ResourceType.SeedsCommon, 12), (ResourceType.SeedsSuper, 85));
 		_balconiesService = new BalconiesService(buildingData, _resourcesService);
-		
+
+		Unlocks.UnlockResources(defaultUnlocks);
+
 		// View bindings
 		_buildingView.Bind(buildingData);
 	}

@@ -27,6 +27,7 @@ public class TimeController : MonoBehaviour
 		{
 			_currentDay = CurrentDay;
 			GameManager.Events.InvokeOnDayStart(CurrentDay);
+			Debug.Log($"Day {_currentDay} Starting. Time: {DayProgress}");
 		}
 	}
 

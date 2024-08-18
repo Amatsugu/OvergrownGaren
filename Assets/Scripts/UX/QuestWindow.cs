@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class QuestWindow : UIPanel
 {
+	public QuestTracker questTracker;
 	public QuestDisplay questPrefab;
 	public RectTransform content;
 	public void ShowQuests(IEnumerable<QuestDefination> activeQuests)
@@ -14,11 +15,23 @@ public class QuestWindow : UIPanel
 		{
 			var display = Instantiate(questPrefab, content);
 			display.SetQuest(quest);
-			var btn = display.GetComponent<Button>();
-			btn.onClick.AddListener(() =>
+			var active = display.GetComponent<ActiveQuestUI>();
+
+			active.abandonBtn.onClick.AddListener(() =>
 			{
-				GameManager.Events.InvokeOnQuestAccepted(quest);
+				questTracker.AbandonQuest(quest);
+				Destroy(gameObject);
 			});
+
+
+			if(active.completeBtn.interactable = QuestTracker.CanCompleteQuest(quest))
+			{
+				active.completeBtn.onClick.AddListener(() =>
+				{
+					if(questTracker.CompleteQuest(quest))
+						Destroy(gameObject);
+				});
+			}
 		}
 		Show();
 	}

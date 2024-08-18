@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Deliver Items
   description: 
-  type: 2
+  deliveryRequirments:
+  - type: 0
+    qty: 0
+  rewards: []
+  rewardUnlocks: 

@@ -4873,8 +4873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfe324aad057434497c786d1efda6f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsPerDay: 100
-  dayStartTime: 0
+  secondsPerDay: 30
+  dayStartTime: 0.2
 --- !u!1001 &1176294896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5804,7 +5804,8 @@ MonoBehaviour:
   hideOnStart: 1
   hideOnBlur: 1
   hideInEditor: 0
-  questPrefab: {fileID: 4478826446047847159, guid: 9e1dd0f4b49591a45919be36b99df4b1, type: 3}
+  questTracker: {fileID: 0}
+  questPrefab: {fileID: 4478826446047847159, guid: cf63f36d3ede2534fb7d93219a47b718, type: 3}
   content: {fileID: 659291754}
 --- !u!1001 &1493466685
 PrefabInstance:

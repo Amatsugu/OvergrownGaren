@@ -12,7 +12,7 @@ namespace GameResources
         public ResourceData[] AllResources => _resourcesMap.Values.ToArray();
         
         private readonly Dictionary<ResourceType, ResourceData> _resourcesMap = new();
-        
+
 		public void AddResources(params ResourceIdentifier[] resources)
 		{
 			foreach (var res in resources)
