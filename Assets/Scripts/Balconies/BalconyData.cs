@@ -10,7 +10,6 @@ namespace Balconies
     {
         public event Action OnUnlocked;
         public event Action<bool> OnReadyToUnlockChanged;
-        public event Action<PlanterBoxData> OnPlanterBoxAdded;
 		public BalconyView view;
         public int Id { get; set; }
         public bool IsUnlocked
@@ -41,27 +40,10 @@ namespace Balconies
             }
         }
 
-        public List<PlanterBoxData> PlanterBoxes = new();
 
         private bool _isUnlocked;
         private bool _isReadyToUnlock;
-        private int _lastPlanterBoxId = 0;
 
-        public PlanterBoxData CreatePlanterBoxData()
-        {
-            var data = new PlanterBoxData
-            {
-                Id = _lastPlanterBoxId,
-                IsAvailable = false,
-                BalconyId = Id
-            };
-            
-            PlanterBoxes.Add(data);
-            OnPlanterBoxAdded?.Invoke(data);
-
-            _lastPlanterBoxId++;
-
-            return data;
-        }
+        
     }
 }

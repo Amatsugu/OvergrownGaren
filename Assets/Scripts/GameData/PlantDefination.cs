@@ -9,6 +9,7 @@ using UnityEngine;
 public class PlantDefination : ScriptableObject
 {
 	public GameObject prefab;
+	public ResourceType seedResource;
 	public float maxAge = 10;
 	public float unitCost;
 	public float unitSell;

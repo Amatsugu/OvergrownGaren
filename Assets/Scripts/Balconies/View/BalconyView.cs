@@ -12,7 +12,6 @@ namespace Balconies
         
         public GameObject _unAvailableBalcony;
         public GameObject _availableBalcony;
-        public Transform _planterBoxesContainer;
         
         public BalconyData Data { get; private set; }
 
@@ -24,20 +23,17 @@ namespace Balconies
 		}
 #endif
 
+		private void Awake()
+		{
+			_unAvailableBalcony.SetActive(true);
+			_availableBalcony.SetActive(false);
+		}
+
 		public void Bind(BalconyData data)
         {
             Data = data;
 			data.view = this;
             Data.OnUnlocked += OnBalconyUnlocked;
-
-            var allPlanterBoxes = _planterBoxesContainer.GetComponentsInChildren<PlanterBoxView>(true);
-            foreach (var planterBoxView in allPlanterBoxes)
-            {
-                var planterBoxData = data.CreatePlanterBoxData();
-                planterBoxView.Bind(planterBoxData);
-            }
-
-           
         }
 
 		public void Init()

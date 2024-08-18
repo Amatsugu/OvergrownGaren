@@ -57,6 +57,15 @@ public class PurchaseDisplay : UIHover
 
 	}
 
+	protected override void OnDestroy()
+	{
+		base.OnDestroy();
+		if(GameManager.Events != null)
+		{
+			GameManager.Events.OnResourcesAdded -= OnResourceChanged;
+			GameManager.Events.OnResourcesSpent -= OnResourceChanged;
+		}
+	}
 
 	public void Hide()
 	{

@@ -16,6 +16,8 @@ public class PlanterController : MonoBehaviour
 
 	public UIState state;
 
+	public PlantDefination[] plants;
+
 	public PlantDefination testPlant;
 	
 	// Update is called once per frame

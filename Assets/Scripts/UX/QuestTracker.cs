@@ -20,6 +20,12 @@ public class QuestTracker : MonoBehaviour
 	private void Awake()
 	{
 		newQuestWindow.questTracker = this;
+		GameManager.Events.OnDayStart += OnDayStart;
+	}
+
+	void OnDayStart(int _)
+	{
+
 	}
 
 
@@ -45,6 +51,11 @@ public class QuestTracker : MonoBehaviour
 			return true;
 		}
 		return false;
+	}
+
+	private bool CanCompleteQuest(QuestDefination quest)
+	{
+		return GameManager.ResourcesService.IsEnough(quest.deliveryRequirments);
 	}
 
 }
