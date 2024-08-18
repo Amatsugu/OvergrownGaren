@@ -18,8 +18,6 @@ public class GameEvents
 	public event Action<QuestDefination> OnQuestCompleted;
 
 
-	public event Action<int> OnMoneyAquired;
-
 	public event Action<ResourceIdentifier, int> OnResourcesAdded;
 	public event Action<ResourceIdentifier, int> OnResourcesSpent;
 	public event Action<BalconyData> OnBalconyUnlocked;
@@ -48,11 +46,6 @@ public class GameEvents
 	public void InvokeOnQuestCompleted(QuestDefination quest)
 	{
 		OnQuestCompleted?.Invoke(quest);
-	}
-
-	public void InvokeOnMoneyAquired(int amount)
-	{
-		OnMoneyAquired?.Invoke(amount);
 	}
 
 	public void InvokeResourcesAdded(ResourceIdentifier resource, int amountTotal)
