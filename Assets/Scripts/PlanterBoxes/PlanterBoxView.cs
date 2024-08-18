@@ -18,7 +18,7 @@ namespace PlanterBoxes
             
             Data = data;
             
-            Debug.Log("Planter Box created. Balcony: " + data.BalconyId + ", Planter Box: " + data.Id);
+            Debug.Log("Planter Box created. Balcony: " + data.BalconyId + ", Planter Box: " + data.Id, gameObject);
             
             data.OnAvailableChanged += OnBoxAvailableChanged;
         }
