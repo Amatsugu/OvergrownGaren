@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 	public static BuildingData BuildingData => INST._buildingView.BuildingData;
 	public static ResourcesService ResourcesService => INST._resourcesService;
 	public static BalconiesService BalconiesService => INST._balconiesService;
+	public static TimeController TimeController => INST._timeController;
 
 	public static GameManager INST
 	{
