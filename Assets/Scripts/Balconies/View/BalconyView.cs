@@ -12,6 +12,7 @@ namespace Balconies
         
         public GameObject _unAvailableBalcony;
         public GameObject _availableBalcony;
+        public GameObject _isReadyToUnlockMarker;
         public Transform _planterBoxesContainer;
         
         public BalconyData Data { get; private set; }
@@ -28,6 +29,7 @@ namespace Balconies
         {
             Data = data;
             Data.OnUnlocked += OnBalconyUnlocked;
+            Data.OnReadyToUnlockChanged += OnReadyToUnlock;
 
             var allPlanterBoxes = _planterBoxesContainer.GetComponentsInChildren<PlanterBoxView>(true);
             foreach (var planterBoxView in allPlanterBoxes)
@@ -46,7 +48,13 @@ namespace Balconies
                 GameManager.BalconiesService.UnlockBalcony(data.Id);
             }
         }
-        
+
+        private void OnReadyToUnlock(bool isReady)
+        {
+            var isEnabled = isReady && !Data.IsUnlocked;
+            _isReadyToUnlockMarker.SetActive(isEnabled);
+        }
+
         private void OnBalconyUnlocked()
         {
             _unAvailableBalcony.SetActive(false);
@@ -56,6 +64,7 @@ namespace Balconies
         private void OnDestroy()
         {
             Data.OnUnlocked -= OnBalconyUnlocked;
+            Data.OnReadyToUnlockChanged -= OnReadyToUnlock;
         }
     }
 }

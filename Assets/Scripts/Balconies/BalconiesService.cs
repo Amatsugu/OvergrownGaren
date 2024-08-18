@@ -51,6 +51,11 @@ namespace Balconies
                 return false;
             }
 
+            if (balcony.IsReadyToUnlock)
+            {
+                return false;
+            }
+
             balcony.IsReadyToUnlock = true;
             
             ReadyToUnlockBalconies.Add(balcony);
