@@ -16,12 +16,11 @@ public class GameEvents
 
 	public event Action<QuestDefination> OnQuestCompleted;
 
-	public event Action<object> OnItemAquired;
 
 	public event Action<int> OnMoneyAquired;
 
-	public event Action<ResourceType, int, int> OnResourcesAdded; 
-	public event Action<ResourceType, int, int> OnResourcesSpent; 
+	public event Action<ResourceIdentifier, int> OnResourcesAdded; 
+	public event Action<ResourceIdentifier, int> OnResourcesSpent; 
 
 	public void InvokeOnCropHarvested(PlantDefination plant)
 	{
@@ -48,23 +47,18 @@ public class GameEvents
 		OnQuestCompleted?.Invoke(quest);
 	}
 
-	public void InvokeOnItemAquired(object item)
-	{
-		OnItemAquired?.Invoke(item);
-	}
-
 	public void InvokeOnMoneyAquired(int amount)
 	{
 		OnMoneyAquired?.Invoke(amount);
 	}
 
-	public void InvokeResourcesAdded(ResourceType type, int amountAdded, int amountTotal)
+	public void InvokeResourcesAdded(ResourceIdentifier resource, int amountTotal)
 	{
-		OnResourcesAdded?.Invoke(type, amountAdded, amountTotal);
+		OnResourcesAdded?.Invoke(resource, amountTotal);
 	}
 	
-	public void InvokeResourcesSpent(ResourceType type, int amountSpent, int amountTotal)
+	public void InvokeResourcesSpent(ResourceIdentifier resource, int amountTotal)
 	{
-		OnResourcesSpent?.Invoke(type, amountSpent, amountTotal);
+		OnResourcesSpent?.Invoke(resource, amountTotal);
 	}
 }

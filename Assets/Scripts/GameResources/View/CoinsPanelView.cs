@@ -22,9 +22,9 @@ namespace GameResources.View
             // GameManager.Events.OnResourcesSpent -= OnResourcesAmountChanged;
         }
 
-        private void OnResourcesAmountChanged(ResourceType type, int amountAdded, int amountTotal)
+        private void OnResourcesAmountChanged(ResourceIdentifier resource, int amountTotal)
         {
-            if (type != ResourceType.Coins)
+            if (resource.type != ResourceType.Coins)
             {
                 return;
             }

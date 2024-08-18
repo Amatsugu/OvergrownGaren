@@ -28,7 +28,7 @@ namespace GameResources
                 _resourcesMap[type] = data;
             }
             
-            GameManager.Events.InvokeResourcesAdded(type, amount, data.Amount);
+            GameManager.Events.InvokeResourcesAdded((type, amount), data.Amount);
             
             return true;
         }
@@ -52,7 +52,7 @@ namespace GameResources
 
             data.Amount -= amount;
             
-            GameManager.Events.InvokeResourcesSpent(type, amount, data.Amount);
+            GameManager.Events.InvokeResourcesSpent((type, amount), data.Amount);
             return true;
         }
 

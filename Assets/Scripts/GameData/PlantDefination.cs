@@ -10,10 +10,10 @@ public class PlantDefination : ScriptableObject
 {
 	public GameObject prefab;
 	public float maxAge = 10;
-	public int yield;
 	public float unitCost;
 	public float unitSell;
-	public ResourceType ResourceType;	//
+	public bool isEvil;
+	public ResourceIdentifier[] yeild;
 
 	public Plant CreatePlant(Transform location)
 	{
