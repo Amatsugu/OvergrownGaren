@@ -2,11 +2,13 @@
 {
     public enum ResourceType
     {
-        Coins = 0,
-		[Display(Name = "Common Seed")]
-        SeedsCommon = 10,
-		[Display(Name = "Super Seed")]
-        SeedsSuper = 20
-		// Any types of seeds
+		[Display(Name = "Coin"), Sprite(0)]
+        Coins,
+		[Display(Name = "Common Seed"), Seed, Sprite(1)]
+        SeedsCommon,
+		[Display(Name = "Super Seed"), Seed, Sprite(2)]
+        SeedsSuper,
+		[Display(Name = "Flower"), Item, Sprite(3)]
+		Flower,
 	}
 }

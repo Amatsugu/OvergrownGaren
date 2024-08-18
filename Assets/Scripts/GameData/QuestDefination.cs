@@ -1,3 +1,5 @@
+using Resources;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -10,22 +12,16 @@ public class QuestDefination : ScriptableObject
 	public string displayName;
 	public string description;
 
-	public QuestType type;
 
-	public object requirements;
-	public object rewards;
+	public ResourceIdentifier[] deliveryRequirments;
+	public ResourceIdentifier[] rewards;
+	public ResourceType[] rewardUnlocks;
 
 	public StringBuilder GetRewardsText()
 	{
 		var sb = new StringBuilder();
-
+		foreach (var reward in rewards)
+			sb.AppendLine(reward.ToString());
 		return sb;
 	}
-}
-
-public enum QuestType
-{
-	Grow,
-	Payment,
-	Delivery
 }

@@ -107,4 +107,9 @@ public struct ResourceIdentifier : IEquatable<ResourceIdentifier>
 	{
 		return HashCode.Combine(type, qty);
 	}
+
+	public override readonly string ToString()
+	{
+		return $"{type.GetSprite()}{qty} {type.ToDisplayString(qty > 1)}";
+	}
 }

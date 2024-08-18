@@ -14,4 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Grow Test
   description: 
-  type: 0
+  deliveryRequirments: []
+  rewards:
+  - type: 0
+    qty: 3
+  - type: 2
+    qty: 3
+  rewardUnlocks: 00000000
