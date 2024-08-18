@@ -15,8 +15,16 @@ namespace Balconies
         public Transform _planterBoxesContainer;
         
         public BalconyData Data { get; private set; }
-        
-        public void Bind(BalconyData data)
+
+#if UNITY_EDITOR
+		private void OnValidate()
+		{
+			if(_isUnlockedByDefault && !_readyToUnlockByDefault)
+				_readyToUnlockByDefault = true;
+		}
+#endif
+
+		public void Bind(BalconyData data)
         {
             Data = data;
             Data.OnUnlocked += OnBalconyUnlocked;

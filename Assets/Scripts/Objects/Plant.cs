@@ -18,9 +18,9 @@ public class Plant : MonoBehaviour
 
 	public bool hasWeeds;
 
-	public float health;
+	public float health = 100;
 
-	public float yeildMultiplier;
+	public float yeildMultiplier = 1;
 
 	[HideInInspector]
 	public PlantDefination plant;
@@ -61,9 +61,9 @@ public class Plant : MonoBehaviour
 		_growthController.OnGrow(NormalizedAge, IsDead);
 	}
 
-	public void GetHarvest()
+	public ResourceIdentifier[] GetHarvest()
 	{
-
+		return plant.yeild.Multiply(yeildMultiplier);
 	}
 
 	public void Water(float ammount)

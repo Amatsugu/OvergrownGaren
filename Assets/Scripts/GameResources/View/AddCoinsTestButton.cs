@@ -14,6 +14,6 @@ public class AddCoinsTestButton : MonoBehaviour
 
     public void OnClick()
     {
-        GameManager.ResourcesService.AddResource(ResourceType.Coins, _amountToAdd);
+        GameManager.ResourcesService.AddResource((ResourceType.Coins, _amountToAdd));
     }
 }

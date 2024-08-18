@@ -28,17 +28,6 @@ namespace PlanterBoxes
             _availablePlanterBox.SetActive(isAvailable);
         }
 
-        private void OnMouseDown()
-        {
-            if (Data.IsAvailable)
-            {
-                Debug.Log("Click to plant");
-            }
-            else
-            {
-                Debug.Log("Click to unlock");
-            }
-        }
 
         private void OnDestroy()
         {

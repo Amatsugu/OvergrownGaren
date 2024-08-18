@@ -44,9 +44,7 @@ public class GameManager : MonoBehaviour
 	{
 		// Initial state
 		var buildingData = new BuildingData();
-		_resourcesService.AddResource(ResourceType.Coins, 1000);
-		_resourcesService.AddResource(ResourceType.SeedsCommon, 12);	// for test
-		_resourcesService.AddResource(ResourceType.SeedsSuper, 85);	// for test
+		_resourcesService.AddResources((ResourceType.Coins, 1000), (ResourceType.SeedsCommon, 12), (ResourceType.SeedsSuper, 85));
 		_balconiesService = new BalconiesService(buildingData, _resourcesService);
 		
 		// View bindings

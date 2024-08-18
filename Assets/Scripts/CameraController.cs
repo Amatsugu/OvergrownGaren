@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour
 	public Vector2 maxBounds = new Vector2(10, 10);
 	public float yZoomBoundOffset = 10;
 
-	private float _curZoom;
+	private float _curZoom = 0.4f;
 	private Transform _transform;
 	private Camera _camera;
 

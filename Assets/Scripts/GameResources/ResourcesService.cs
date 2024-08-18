@@ -13,64 +13,70 @@ namespace GameResources
         
         private readonly Dictionary<ResourceType, ResourceData> _resourcesMap = new();
         
-        public bool AddResource(ResourceType type, int amount)
+		public void AddResources(params ResourceIdentifier[] resources)
+		{
+			foreach (var res in resources)
+				AddResource(res);
+		}
+
+        public bool AddResource(ResourceIdentifier resource)
         {
-            if (amount < 0)
+            if (resource.qty < 0)
             {
                 return false;
             }
 
-            if (_resourcesMap.TryGetValue(type, out var data))
+            if (_resourcesMap.TryGetValue(resource.type, out var data))
             {
-                data.Amount += amount;
+                data.Amount += resource.qty;
             }
             else
             {
                 data = new ResourceData
                 {
-                    Type = type, 
-                    Amount = amount
+                    Type = resource.type, 
+                    Amount = resource.qty
                 };
-                _resourcesMap[type] = data;
+                _resourcesMap[resource.type] = data;
                 OnResourceCreated?.Invoke(data);
             }
             
-            GameManager.Events.InvokeResourcesAdded((type, amount), data.Amount);
+            GameManager.Events.InvokeResourcesAdded(resource, data.Amount);
             
             return true;
         }
         
-        public bool SpendResource(ResourceType type, int amount)
+        public bool SpendResource(ResourceIdentifier resource)
         {
-            if (amount < 0)
+            if (resource < 0)
             {
                 return false;
             }
 
-            if (!_resourcesMap.TryGetValue(type, out var data))
+            if (!_resourcesMap.TryGetValue(resource.type, out var data))
             {
                 return false;   // no resources
             }
 
-            if (data.Amount <= amount)
+            if (resource > data.Amount)
             {
                 return false; // not enough
             }
 
-            data.Amount -= amount;
+            data.Amount -= resource.qty;
             
-            GameManager.Events.InvokeResourcesSpent((type, amount), data.Amount);
+            GameManager.Events.InvokeResourcesSpent(resource, data.Amount);
             return true;
         }
 
-        public bool IsEnough(ResourceType type, int amount)
+        public bool IsEnough(ResourceIdentifier resource)
         {
-            if (!_resourcesMap.TryGetValue(type, out var data))
+            if (!_resourcesMap.TryGetValue(resource.type, out var data))
             {
                 return false;
             }
 
-            return data.Amount >= amount;
+            return resource < data.Amount;
         }
 
         public int GetAmount(ResourceType type)
