@@ -46,7 +46,9 @@ namespace Building
         private void FindBalconyAndTryToMarkItReadyToUnlock(Transform t, Vector2 direction)
         {
             var hit = Physics2D.Raycast(t.position, direction);
-            var hitBalcony = hit.collider?.GetComponentInParent<BalconyView>();
+			if (hit.collider == null)
+				return;
+            var hitBalcony = hit.collider.GetComponentInParent<BalconyView>();
 
             if (hitBalcony)
             {
