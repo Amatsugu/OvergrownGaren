@@ -1,10 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Resources;
 
 namespace GameResources
 {
     public class ResourcesService
     {
+        public event Action<ResourceData> OnResourceCreated;
+
+        public ResourceData[] AllResources => _resourcesMap.Values.ToArray();
+        
         private readonly Dictionary<ResourceType, ResourceData> _resourcesMap = new();
         
         public bool AddResource(ResourceType type, int amount)
@@ -26,6 +32,7 @@ namespace GameResources
                     Amount = amount
                 };
                 _resourcesMap[type] = data;
+                OnResourceCreated?.Invoke(data);
             }
             
             GameManager.Events.InvokeResourcesAdded(type, amount, data.Amount);
