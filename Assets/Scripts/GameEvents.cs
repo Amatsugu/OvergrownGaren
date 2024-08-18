@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Balconies;
 using Resources;
 using UnityEngine;
 
@@ -19,8 +20,10 @@ public class GameEvents
 
 	public event Action<int> OnMoneyAquired;
 
-	public event Action<ResourceIdentifier, int> OnResourcesAdded; 
-	public event Action<ResourceIdentifier, int> OnResourcesSpent; 
+	public event Action<ResourceIdentifier, int> OnResourcesAdded;
+	public event Action<ResourceIdentifier, int> OnResourcesSpent;
+	public event Action<BalconyData> OnBalconyUnlocked;
+	public event Action<BalconyData> OnBalconyReadyToUnlock;
 
 	public void InvokeOnCropHarvested(PlantDefination plant)
 	{
@@ -56,9 +59,19 @@ public class GameEvents
 	{
 		OnResourcesAdded?.Invoke(resource, amountTotal);
 	}
-	
+
 	public void InvokeResourcesSpent(ResourceIdentifier resource, int amountTotal)
 	{
 		OnResourcesSpent?.Invoke(resource, amountTotal);
+	}
+
+	public void InvokeBalconyUnlocked(BalconyData balconyData)
+	{
+		OnBalconyUnlocked?.Invoke(balconyData);
+	}
+
+	public void InvokeBalconyReadyToUnlock(BalconyData balconyData)
+	{
+		OnBalconyReadyToUnlock?.Invoke(balconyData);
 	}
 }

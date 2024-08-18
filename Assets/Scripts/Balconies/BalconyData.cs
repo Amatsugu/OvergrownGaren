@@ -7,11 +7,11 @@ namespace Balconies
     public class BalconyData
     {
         public event Action OnUnlocked;
+        public event Action<bool> OnReadyToUnlockChanged;
         public event Action<PlanterBoxData> OnPlanterBoxAdded;
 
         public int Id { get; set; }
-
-    public bool IsUnlocked
+        public bool IsUnlocked
         {
             get => _isUnlocked;
             set
@@ -26,10 +26,23 @@ namespace Balconies
                 }
             }
         }
+        public bool IsReadyToUnlock
+        {
+            get => _isReadyToUnlock;
+            set
+            {
+                if (_isReadyToUnlock != value)
+                {
+                    _isReadyToUnlock = value;
+                    OnReadyToUnlockChanged?.Invoke(value);
+                }
+            }
+        }
 
         public List<PlanterBoxData> PlanterBoxes = new();
 
         private bool _isUnlocked;
+        private bool _isReadyToUnlock;
         private int _lastPlanterBoxId = 0;
 
         public PlanterBoxData CreatePlanterBoxData()

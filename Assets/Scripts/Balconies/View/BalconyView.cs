@@ -8,6 +8,7 @@ namespace Balconies
     {
         public ResourceType _buildPriceType;
         public int _buildPriceAmount;
+        public bool _readyToUnlockByDefault;
         
         public GameObject _unAvailableBalcony;
         public GameObject _availableBalcony;
@@ -24,6 +25,11 @@ namespace Balconies
             {
                 var planterBoxData = data.CreatePlanterBoxData();
                 planterBoxView.Bind(planterBoxData);
+            }
+
+            if (_readyToUnlockByDefault)
+            {
+                GameManager.BalconiesService.MarkReadyToUnlock(data.Id);
             }
 
             Data.OnUnlocked += OnBalconyUnlocked;
