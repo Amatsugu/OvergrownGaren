@@ -6,8 +6,7 @@ namespace Balconies
 {
     public class BalconyView : MonoBehaviour
     {
-        public ResourceType _buildPriceType;
-        public int _buildPriceAmount;
+		public ResourceIdentifier _buildCost;
         public bool _readyToUnlockByDefault;
         
         public GameObject _unAvailableBalcony;
