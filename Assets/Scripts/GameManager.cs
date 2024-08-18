@@ -19,20 +19,15 @@ public class GameManager : MonoBehaviour
 		{
 			if(_instance == null)
 			{
-				return _instance = FindFirstObjectByType<GameManager>();
+				_instance = FindFirstObjectByType<GameManager>();
+				_instance._events = new GameEvents();
+				return _instance;
 			}
 			return _instance;
 		}
 	}
 
 	private static GameManager _instance;
-	private GameEvents _events;
-
-	private void Awake()
-	{
-		_instance = this;
-		_events = new GameEvents();
-	}
-
+	private GameEvents _events = new();
 
 }

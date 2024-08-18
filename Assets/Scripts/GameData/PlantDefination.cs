@@ -19,10 +19,7 @@ public class PlantDefination : ScriptableObject
 	{
 		var instance = Instantiate(prefab, location, false);
 
-
-
-		var p = instance.GetComponent<Plant>();
-		if (p == null)
+		if (!instance.TryGetComponent<Plant>(out var p))
 			p = instance.AddComponent<Plant>();
 		p.plant = this;
 		return p;

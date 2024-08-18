@@ -55,7 +55,6 @@ public class PlanterController : MonoBehaviour
 		}else
 			planter.Plant(testPlant);
 
-		Debug.Log(planter.gameObject);
 
 	}
 }
