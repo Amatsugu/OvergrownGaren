@@ -423,6 +423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildPriceType: 0
   _buildPriceAmount: 0
+  _readyToUnlockByDefault: 1
   _unAvailableBalcony: {fileID: 2030630260}
   _availableBalcony: {fileID: 1161470111}
   _planterBoxesContainer: {fileID: 1161470112}
@@ -5911,6 +5912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildPriceType: 0
   _buildPriceAmount: 0
+  _readyToUnlockByDefault: 0
   _unAvailableBalcony: {fileID: 213053891}
   _availableBalcony: {fileID: 1156860193}
   _planterBoxesContainer: {fileID: 1156860194}
@@ -6403,6 +6405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildPriceType: 0
   _buildPriceAmount: 0
+  _readyToUnlockByDefault: 0
   _unAvailableBalcony: {fileID: 1147688758}
   _availableBalcony: {fileID: 2083070849}
   _planterBoxesContainer: {fileID: 2083070850}

@@ -24,6 +24,7 @@ public class GameEvents
 	public event Action<ResourceType, int, int> OnResourcesAdded; 
 	public event Action<ResourceType, int, int> OnResourcesSpent; 
 	public event Action<BalconyData> OnBalconyUnlocked; 
+	public event Action<BalconyData> OnBalconyReadyToUnlock; 
 
 	public void InvokeOnCropHarvested(PlantDefination plant)
 	{
@@ -73,5 +74,10 @@ public class GameEvents
 	public void InvokeBalconyUnlocked(BalconyData balconyData)
 	{
 		OnBalconyUnlocked?.Invoke(balconyData);
+	}
+	
+	public void InvokeBalconyReadyToUnlock(BalconyData balconyData)
+	{
+		OnBalconyReadyToUnlock?.Invoke(balconyData);
 	}
 }
