@@ -17,6 +17,7 @@ public class TimeController : MonoBehaviour
 	private bool _forceTime = false;
 	private int _currentDay = 0;
 #if UNITY_EDITOR
+	public bool showControlWindow = true;
 	private Rect _windowPos = new Rect(100, 100, 300, 200);
 #endif
 
@@ -35,6 +36,8 @@ public class TimeController : MonoBehaviour
 
 	private void OnGUI()
 	{
+		if (!showControlWindow)
+			return;
 		_windowPos = GUI.Window(0, _windowPos, a =>
 		{
 			_forceTime = GUI.Toggle(new Rect(10, 20, 290, 20), _forceTime, "Force Time");
