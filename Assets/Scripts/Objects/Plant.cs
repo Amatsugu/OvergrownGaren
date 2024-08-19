@@ -24,7 +24,8 @@ public class Plant : MonoBehaviour
 	[HideInInspector]
 	public PlantDefination plant;
 
-	public event Action<float> WaterValueChanged; 
+	public event Action<float> WaterValueChanged;
+	public event Action<bool> GetReadyToHarvest; 
 
 	private GrowthController _growthController;
 
@@ -35,7 +36,6 @@ public class Plant : MonoBehaviour
 
 	private void Update()
 	{
-		
 		var growthMulti = GetGrowthRate();
 
 		water -= GameManager.DryRate * Time.deltaTime;
@@ -45,6 +45,11 @@ public class Plant : MonoBehaviour
 		WaterValueChanged?.Invoke(water);
 
 		age += Time.deltaTime * growthMulti;
+
+		if (IsHarvestable)
+		{
+			GetReadyToHarvest?.Invoke(true);
+		}
 	}
 
 	public float GetGrowthRate()
@@ -60,7 +65,6 @@ public class Plant : MonoBehaviour
 
 	private void LateUpdate()
 	{
-
 		_growthController.OnGrow(NormalizedAge, IsDead);
 	}
 
