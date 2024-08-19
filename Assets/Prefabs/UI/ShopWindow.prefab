@@ -592,7 +592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7489136081110903562
 RectTransform:
   m_ObjectHideFlags: 0
@@ -669,7 +669,7 @@ MonoBehaviour:
   rTransform: {fileID: 0}
   closeButton: {fileID: 7612666870663557897}
   titleText: {fileID: 456978736106220955}
-  hideOnStart: 1
+  hideOnStart: 0
   hideOnBlur: 0
   hideInEditor: 0
   resourcePrefab: {fileID: 2498516592365991632, guid: 2ef894943aefd0b489b1d237d7128fdd, type: 3}

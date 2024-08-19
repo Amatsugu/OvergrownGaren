@@ -20,6 +20,7 @@ public class PlanterController : MonoBehaviour
 
 	public PlantDefination[] plants;
 
+	[HideInInspector]
 	public PlantDefination _selectedPlant;
 
 

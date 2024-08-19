@@ -44,7 +44,7 @@ public class QuestDefination : ScriptableObject
 	public StringBuilder GetDescription()
 	{
 		var sb = new StringBuilder();
-		if(string.IsNullOrWhiteSpace(displayName))
+		if(!string.IsNullOrWhiteSpace(displayName))
 			sb.AppendLine(description);
 
 		sb.AppendLine("Requirements:");

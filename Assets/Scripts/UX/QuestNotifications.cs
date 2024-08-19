@@ -9,10 +9,12 @@ public class QuestNotifications : MonoBehaviour
     public RectTransform _root;
     public TMP_Text _textQuestTitle;
     public Button _btn;
+	[HideInInspector]
     public QuestTracker _questTracker;
+	[HideInInspector]
     public ShopUI _shopUI;
 
-    private Vector3 _hiddenPosition;
+	private Vector3 _hiddenPosition;
     private Vector3 _shownPosition;
     // private TweenerCore<Vector3, Vector3, VectorOptions> _tweener;
     private Sequence _sequence;
@@ -23,6 +25,8 @@ public class QuestNotifications : MonoBehaviour
         _hiddenPosition = new Vector3(0, 100, 0);
         _shownPosition = new Vector3(0, 0, 0);
         _root.anchoredPosition = _hiddenPosition;
+		_questTracker = FindAnyObjectByType<QuestTracker>();
+		_shopUI = FindAnyObjectByType<ShopUI>();
     }
 
     private void Start()

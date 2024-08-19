@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class QuestWindow : UIPanel
 {
+	[HideInInspector]
 	public QuestTracker questTracker;
 	public QuestDisplay questPrefab;
 	public RectTransform content;
