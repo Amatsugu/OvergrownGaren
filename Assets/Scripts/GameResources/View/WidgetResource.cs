@@ -1,6 +1,8 @@
-﻿using Resources;
+﻿using System;
+using Resources;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 namespace GameResources.View
@@ -14,20 +16,21 @@ namespace GameResources.View
 		public bool isSelected;
 
 		private Button _button;
-		private ResourcesPanel _resourcesPanel;
 
 		public ResourceType ResourceType { get; private set; }
+
+		public event Action<WidgetResource> OnClicked;
+		public event Action<WidgetResource> OnDestroyed; 
 
 		private void Start()
 		{
 			_button = GetComponent<Button>();
-			_button.onClick.AddListener(() => SetSelected()); 
+			_button.onClick.AddListener(OnClick); 
 		}
 
-		public void Bind(ResourceType resourceType, ResourcesPanel panel)
+		public void Bind(ResourceType resourceType)
         {
 			ResourceType = resourceType;
-			_resourcesPanel = panel;
             _iconDisplay.SetText(resourceType.GetSprite());
 			var qty = GameManager.ResourcesService.GetAmount(resourceType);
 			_titleText.SetText(resourceType.ToDisplayString(qty > 1));
@@ -40,13 +43,18 @@ namespace GameResources.View
 
         private void OnDestroy()
         {
-			_resourcesPanel.widgets.Remove(this);
+	        OnDestroyed?.Invoke(this);
+
+	        if (GameManager.INST != null)
+	        {
+		        GameManager.Events.OnResourcesAdded -= OnResourcesAmountChanged;
+		        GameManager.Events.OnResourcesSpent -= OnResourcesAmountChanged;
+	        }
         }
 
 		public void SetSelected()
 		{
 			isSelected = true;
-			_resourcesPanel.DeselectAll();
 			selectedIndicator.SetActive(true);
 			GameManager.PlanterController.SelectPlant(ResourceType);
 		}
@@ -70,5 +78,10 @@ namespace GameResources.View
             _textAmount.text = amountTotal.ToString();
 			_titleText.SetText(ResourceType.ToDisplayString(amountTotal > 1));
 		}
+
+        private void OnClick()
+        {
+	        OnClicked?.Invoke(this);
+        }
 	}
 }

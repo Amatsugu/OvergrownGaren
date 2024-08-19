@@ -44,11 +44,27 @@ namespace GameResources.View
             }
             
             var createdWidget = Instantiate(_prefab, _resourcesContainer);
-            createdWidget.Bind(resourceData.Type, this);
+            createdWidget.Bind(resourceData.Type);
+            
+            createdWidget.OnClicked += OnResourceWidgetClicked;
+            createdWidget.OnDestroyed += OnResourceWidgetDestroyed;
+            
 			widgets.Add(createdWidget);
         }
 
-		public void DeselectAll()
+        private void OnResourceWidgetClicked(WidgetResource clickedWidget)
+        {
+            DeselectAll();
+            clickedWidget.SetSelected();
+        }
+        
+        private void OnResourceWidgetDestroyed(WidgetResource destroyedWidget)
+        {
+            destroyedWidget.OnDestroyed -= OnResourceWidgetDestroyed;
+            widgets.Remove(destroyedWidget);
+        }
+
+        public void DeselectAll()
 		{
 			foreach (var item in widgets)
 				item.Deselect();

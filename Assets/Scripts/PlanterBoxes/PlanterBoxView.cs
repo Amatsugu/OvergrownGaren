@@ -31,7 +31,7 @@ namespace PlanterBoxes
 
         private void OnDestroy()
         {
-            Data.OnAvailableChanged -= OnBoxAvailableChanged;
+            // Data.OnAvailableChanged -= OnBoxAvailableChanged;
         }
     }
 }

@@ -1,8 +1,4 @@
 using Resources;
-
-using System.Collections;
-using System.Collections.Generic;
-
 using TMPro;
 
 using UnityEngine;
@@ -34,6 +30,9 @@ public class ShopResource : MonoBehaviour
 
 	public void Refresh()
 	{
-		_button.interactable = GameManager.ResourcesService.HasResources(_resource.GetCost());
+		if (_button)
+		{
+			_button.interactable = GameManager.ResourcesService.HasResources(_resource.GetCost());
+		}
 	}
 }

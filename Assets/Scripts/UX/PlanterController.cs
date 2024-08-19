@@ -59,9 +59,7 @@ public class PlanterController : MonoBehaviour
 	{
 		if (!Input.GetKeyDown(KeyCode.Mouse0))
 			return;
-		if(_selectedPlant == null) 
-			return;
-
+		
 		var mPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		var hit = Physics2D.Raycast(mPos, mPos, 10);
 		if(hit.collider == null) 
@@ -73,16 +71,23 @@ public class PlanterController : MonoBehaviour
 		if (planter.HasCrop)
 		{
 			if (planter.Crop.IsHarvestable)
-				planter.Harvest();
-			else
-				planter.Crop.Water(5);
-		}
-		else
-		{
-			if(GameManager.ResourcesService.SpendResources((_selectedPlant.seedResource, 1)))
 			{
-				planter.Plant(_selectedPlant);
+				planter.Harvest();
 			}
+			else
+			{
+				planter.Crop.Water(5);
+			}
+			
+			return;
+		}
+		
+		if(_selectedPlant == null) 
+			return;
+		
+		if(GameManager.ResourcesService.SpendResources((_selectedPlant.seedResource, 1)))
+		{
+			planter.Plant(_selectedPlant);
 		}
 	}
 
