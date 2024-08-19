@@ -2715,7 +2715,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1040788380}
         m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
         m_MethodName: Show
         m_Mode: 1
@@ -3953,6 +3953,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7678366900620055985, guid: 234cd450a11092a41ab47fcd8b5ad709, type: 3}
   m_PrefabInstance: {fileID: 1024060150}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1040788380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 657248632847993434, guid: dc46883150788764aaa3782f70abfd61, type: 3}
+  m_PrefabInstance: {fileID: 207838000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ae304c0a26d80418013b8d6dc948e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1043282902 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1071990484658436143, guid: 7fc072cb5cf264e4196ea48fb7967c0b, type: 3}

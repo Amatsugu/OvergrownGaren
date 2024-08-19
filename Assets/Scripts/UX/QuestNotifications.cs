@@ -26,11 +26,16 @@ public class QuestNotifications : MonoBehaviour
         _shownPosition = new Vector3(0, 0, 0);
         _root.anchoredPosition = _hiddenPosition;
 		_questTracker = FindAnyObjectByType<QuestTracker>();
-		_shopUI = FindAnyObjectByType<ShopUI>();
+		_shopUI = FindAnyObjectByType<ShopUI>(FindObjectsInactive.Include);
     }
 
     private void Start()
     {
+		if (_shopUI == null)
+			Debug.LogError("Shop UI is null");
+		if (_questTracker == null)
+			Debug.LogError("Quest Tracker is null");
+
         GameManager.Events.OnQuestBecomeReadyToComplete += OnQuestBecomeReadyToComplete;
         
         _btn.onClick.AddListener(OnClick);
