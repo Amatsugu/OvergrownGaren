@@ -94,7 +94,7 @@ public class UIHover : UIBehaviour, IPointerEnterHandler, IPointerExitHandler
 	public virtual void SetActive(bool active)
 	{
 		if(rTransform == null)
-		rTransform = GetComponent<RectTransform>();
+			rTransform = GetComponent<RectTransform>();
 		gameObject.SetActive(active);
 		if (!active)
 			isHovered = false;

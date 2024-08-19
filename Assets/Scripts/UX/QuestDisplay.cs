@@ -29,7 +29,7 @@ public class QuestDisplay : MonoBehaviour
 	private void UpdateDisplay()
 	{
 		titleText.SetText(quest.displayName);
-		descriptionText.SetText(quest.description);
+		descriptionText.SetText(quest.GetDescription());
 		rewardsDisplay.SetText(quest.GetRewardsText());
 	}
 }

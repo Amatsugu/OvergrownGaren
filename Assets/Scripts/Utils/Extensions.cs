@@ -1,3 +1,5 @@
+using Resources;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,6 +36,17 @@ public static class Extensions
 	{
 		var id = value.GetSpriteId();
 		return $"<sprite={id}>";
+	}
+
+	public static bool IsItem(this ResourceType resource) => resource.Has<ItemAttribute, ResourceType>();
+	public static bool IsSeed(this ResourceType resource) => resource.Has<SeedAttribute, ResourceType>();
+
+	public static bool Has<T, E>(this E value) where T : Attribute where E : Enum
+	{
+		var type = typeof(E);
+		var prop = type.GetField(value.ToString());
+		var attr = prop.GetCustomAttribute<T>();
+		return attr != null;
 	}
 
 	public static ResourceIdentifier[] Multiply(this ResourceIdentifier[] resources, int multi)

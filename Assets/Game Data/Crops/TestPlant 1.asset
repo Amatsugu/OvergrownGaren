@@ -9,15 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d8ae58cc0371841a3bffae964e747a, type: 3}
-  m_Name: Test2
+  m_Script: {fileID: 11500000, guid: 5c209d19040e60344a78d48e42f68d07, type: 3}
+  m_Name: TestPlant 1
   m_EditorClassIdentifier: 
-  displayName: Deliver Items
-  description: 
-  deliveryRequirments:
+  prefab: {fileID: 4371213790100000826, guid: 0f588062be0b8eb44a395f581e090652, type: 3}
+  seedResource: 2
+  maxAge: 2
+  unitCost: 0
+  unitSell: 0
+  isEvil: 0
+  yeild:
   - type: 4
-    qty: 74
-  rewards:
-  - type: 0
-    qty: 1317
-  rewardUnlocks: 
+    qty: 4
+  - type: 1
+    qty: 1

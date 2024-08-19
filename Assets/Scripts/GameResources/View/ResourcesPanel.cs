@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Resources;
 using Unity.VisualScripting;
@@ -6,18 +7,13 @@ using UnityEngine;
 
 namespace GameResources.View
 {
-    [Serializable]
-    public class ResourceIconMapping
-    {
-        public ResourceType ResourceType;
-        public Sprite Icon;
-    }
     
     public class ResourcesPanel : MonoBehaviour
     {
         public WidgetResource _prefab;
         public Transform _resourcesContainer;
-        public ResourceIconMapping[] _iconMappings;
+
+		public List<WidgetResource> widgets = new();
         
         private void Start()
         {
@@ -48,8 +44,14 @@ namespace GameResources.View
             }
             
             var createdWidget = Instantiate(_prefab, _resourcesContainer);
-            var icon = _iconMappings.FirstOrDefault(m => m.ResourceType == resourceData.Type)?.Icon;
-            createdWidget.Bind(resourceData.Type, icon);
+            createdWidget.Bind(resourceData.Type, this);
+			widgets.Add(createdWidget);
         }
+
+		public void DeselectAll()
+		{
+			foreach (var item in widgets)
+				item.Deselect();
+		}
     }
 }

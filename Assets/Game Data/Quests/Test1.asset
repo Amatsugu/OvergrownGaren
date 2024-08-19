@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d8ae58cc0371841a3bffae964e747a, type: 3}
   m_Name: Test1
   m_EditorClassIdentifier: 
-  displayName: Grow Test
+  displayName: Grow Flower
   description: 
-  deliveryRequirments: []
+  deliveryRequirments:
+  - type: 3
+    qty: 46
   rewards:
   - type: 0
-    qty: 3
-  - type: 3
-    qty: 3
-  rewardUnlocks: 00000000
+    qty: 85
+  - type: 2
+    qty: 1
+  rewardUnlocks: 02000000

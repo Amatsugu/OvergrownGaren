@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+
 using UnityEngine;
 
 public class QuestTracker : MonoBehaviour
@@ -29,7 +31,7 @@ public class QuestTracker : MonoBehaviour
 
 	void OnResourceChange(ResourceIdentifier _, int __)
 	{
-		if (questsWindow.IsOpen)
+		if (questsWindow.IsOpen && _activeQuests.Count > 0)
 			questsWindow.ShowQuests(_activeQuests);
 	}
 
@@ -38,6 +40,15 @@ public class QuestTracker : MonoBehaviour
 		if (_activeQuests.Count >= maxAcceptedQuests)
 			return;
 
+		questsWindow.Hide();
+		newQuestWindow.ShowQuests(GetEligableQuests());
+	}
+
+	public IEnumerable<QuestDefination> GetEligableQuests()
+	{
+		var eligableQuests = questDefinations.Where(q => q.IsEligable())
+			.Except(_completedQuests).Except(_activeQuests).Take(3);
+		return eligableQuests;
 	}
 
 
@@ -49,7 +60,7 @@ public class QuestTracker : MonoBehaviour
 
 	public void ShowNewQuests()
 	{
-		newQuestWindow.ShowQuests(questDefinations);
+		newQuestWindow.ShowQuests(GetEligableQuests());
 		questsWindow.Hide();
 	}
 
@@ -84,7 +95,8 @@ public class QuestTracker : MonoBehaviour
 		GameManager.ResourcesService.SpendResources(quest.deliveryRequirments);
 		GameManager.ResourcesService.AddResources(quest.rewards);
 		GameManager.Unlocks.UnlockResources(quest.rewardUnlocks);
-
+		_completedQuests.Add(quest);
+		_activeQuests.Remove(quest);
 		return true;
 	}
 

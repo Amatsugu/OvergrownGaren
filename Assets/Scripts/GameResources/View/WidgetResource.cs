@@ -7,27 +7,55 @@ namespace GameResources.View
 {
     public class WidgetResource : MonoBehaviour
     {
+		public GameObject selectedIndicator;
         public TMP_Text _textAmount;
-        public Image _imgIcon;
-        
-        public ResourceType ResourceType { get; private set; }
-        
-        public void Bind(ResourceType resourceType, Sprite icon)
+        public TextMeshProUGUI _iconDisplay;
+        public TextMeshProUGUI _titleText;
+		public bool isSelected;
+
+		private Button _button;
+		private ResourcesPanel _resourcesPanel;
+
+		public ResourceType ResourceType { get; private set; }
+
+		private void Start()
+		{
+			_button = GetComponent<Button>();
+			_button.onClick.AddListener(() => SetSelected()); 
+		}
+
+		public void Bind(ResourceType resourceType, ResourcesPanel panel)
         {
-            ResourceType = resourceType;
-            _imgIcon.sprite = icon;
+			ResourceType = resourceType;
+			_resourcesPanel = panel;
+            _iconDisplay.SetText(resourceType.GetSprite());
+			var qty = GameManager.ResourcesService.GetAmount(resourceType);
+			_titleText.SetText(resourceType.ToDisplayString(qty > 1));
 
             GameManager.Events.OnResourcesAdded += OnResourcesAmountChanged;
             GameManager.Events.OnResourcesSpent += OnResourcesAmountChanged;
 
-            _textAmount.text = GameManager.ResourcesService.GetAmount(resourceType).ToString();
+            _textAmount.text = qty.ToString();
         }
 
         private void OnDestroy()
         {
-            // GameManager.Events.OnResourcesAdded += OnResourcesAmountChanged;
-            // GameManager.Events.OnResourcesSpent += OnResourcesAmountChanged;
+			_resourcesPanel.widgets.Remove(this);
         }
+
+		public void SetSelected()
+		{
+			isSelected = true;
+			_resourcesPanel.DeselectAll();
+			selectedIndicator.SetActive(true);
+			GameManager.PlanterController.SelectPlant(ResourceType);
+		}
+
+		public void Deselect()
+		{
+			isSelected = false;
+			selectedIndicator.SetActive(false);
+		}
 
         private void OnResourcesAmountChanged(ResourceIdentifier resource, int amountTotal)
         {
@@ -40,6 +68,7 @@ namespace GameResources.View
             gameObject.SetActive(isEnabled);
             
             _textAmount.text = amountTotal.ToString();
-        }
-    }
+			_titleText.SetText(ResourceType.ToDisplayString(amountTotal > 1));
+		}
+	}
 }

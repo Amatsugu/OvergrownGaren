@@ -99,7 +99,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -20}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2841271477120819782
 CanvasRenderer:
@@ -369,7 +369,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00026373137, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 80}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7539430637233745567
 MonoBehaviour:
@@ -384,10 +384,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 5
+    m_Right: 5
+    m_Top: 5
+    m_Bottom: 5
   m_ChildAlignment: 3
   m_Spacing: 20
   m_ChildForceExpandWidth: 1
@@ -448,7 +448,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 70}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &893809577947550449
 MonoBehaviour:
@@ -464,8 +464,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 6693907138632210470, guid: b0d6195d4f6430f49bb01e5df546a671, type: 3}
   _resourcesContainer: {fileID: 4446636444240296824}
-  _iconMappings:
-  - ResourceType: 1
-    Icon: {fileID: 21300000, guid: b0af590b8cfc16f4685bcc4677a9e2db, type: 3}
-  - ResourceType: 2
-    Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

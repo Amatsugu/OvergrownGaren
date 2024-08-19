@@ -29,9 +29,28 @@ public class QuestDefination : ScriptableObject
 	{
 		foreach (var res in deliveryRequirments)
 		{
-			if (!GameManager.Unlocks.IsUnlocked(res.type))
-				return false;
+			if(res.type == ResourceType.Coins)
+				continue;
+			var seeds = GameManager.PlanterController.GetSeedsFor(res.type);
+			foreach (var seed in seeds)
+			{
+				if(!GameManager.Unlocks.IsUnlocked(seed))
+					return false;
+			}
 		}
 		return true;
+	}
+
+	public StringBuilder GetDescription()
+	{
+		var sb = new StringBuilder();
+		if(string.IsNullOrWhiteSpace(displayName))
+			sb.AppendLine(description);
+
+		sb.AppendLine("Requirements:");
+		foreach (var res in deliveryRequirments)
+			sb.Append(res.ToString()).Append(' ');
+
+		return sb;
 	}
 }

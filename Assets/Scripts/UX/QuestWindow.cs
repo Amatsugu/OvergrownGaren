@@ -20,18 +20,19 @@ public class QuestWindow : UIPanel
 			active.abandonBtn.onClick.AddListener(() =>
 			{
 				questTracker.AbandonQuest(quest);
-				Destroy(gameObject);
+				Destroy(display.gameObject);
 			});
 
 
-			if(active.completeBtn.interactable = QuestTracker.CanCompleteQuest(quest))
+			if(QuestTracker.CanCompleteQuest(quest))
 			{
 				active.completeBtn.onClick.AddListener(() =>
 				{
 					if(questTracker.CompleteQuest(quest))
-						Destroy(gameObject);
+						Destroy(display.gameObject);
 				});
-			}
+			}else
+				active.completeBtn.interactable = false;
 		}
 		Show();
 	}

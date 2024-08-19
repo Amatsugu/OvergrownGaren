@@ -14,4 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Pay Money
   description: 
-  type: 1
+  deliveryRequirments:
+  - type: 0
+    qty: 35
+  rewards:
+  - type: 0
+    qty: 251
+  rewardUnlocks: 

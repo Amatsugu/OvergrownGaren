@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 	{
 		// Initial state
 		var buildingData = new BuildingData();
-		_resourcesService.AddResources((ResourceType.Coins, 1000), (ResourceType.SeedsCommon, 12), (ResourceType.SeedsSuper, 85));
+		_resourcesService.AddResources((ResourceType.Coins, 0), (ResourceType.SeedsCommon, 3));
 		_balconiesService = new BalconiesService(buildingData, _resourcesService);
 
 		Unlocks.UnlockResources(defaultUnlocks);
