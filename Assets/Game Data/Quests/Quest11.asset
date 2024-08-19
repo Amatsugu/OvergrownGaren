@@ -10,16 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3d8ae58cc0371841a3bffae964e747a, type: 3}
-  m_Name: Test1
+  m_Name: Quest11
   m_EditorClassIdentifier: 
-  displayName: Grow Flower
-  description: 
+  displayName: Enigma
+  description: I have been watching it all day. It rose from the soil like a corpse
+    come alive. It looks like two creatures hugging each other. It also has roots
+    reaching far into the floor, rapidly expanding. This...This can't be happening.
+    I must be losing my mind.
   deliveryRequirments:
-  - type: 3
-    qty: 8
-  rewards:
-  - type: 0
-    qty: 85
-  - type: 2
+  - type: 16
     qty: 1
-  rewardUnlocks: 02000000
+  - type: 0
+    qty: 5000
+  rewards:
+  - type: 5
+    qty: 1
+  rewardUnlocks: 

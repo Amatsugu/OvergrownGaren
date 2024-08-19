@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d8ae58cc0371841a3bffae964e747a, type: 3}
+  m_Name: Quest9
+  m_EditorClassIdentifier: 
+  displayName: Experiment III
+  description: This...This is not a plant...What is this? It is scorching hot, I
+    can't even water it! Ugly little thing keeps releasing smoke like a factory as
+    well, I hope the landlord doesn't catch on to what I am doing.
+  deliveryRequirments:
+  - type: 8
+    qty: 10
+  - type: 12
+    qty: 4
+  rewards:
+  - type: 13
+    qty: 1
+  rewardUnlocks: 0d000000

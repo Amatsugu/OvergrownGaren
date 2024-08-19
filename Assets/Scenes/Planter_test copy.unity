@@ -5100,6 +5100,8 @@ MonoBehaviour:
   plants:
   - {fileID: 11400000, guid: 3d1b3bec21eb2e446ad1d48ae15368a7, type: 2}
   - {fileID: 11400000, guid: 31cd421f5a29e684cab9c66eb0d912e7, type: 2}
+  - {fileID: 11400000, guid: 8244c1f023e7a9c4a9aca1fa185821c3, type: 2}
+  - {fileID: 11400000, guid: 0797ba74b12f90f459f642215ef949a3, type: 2}
   _selectedPlant: {fileID: 0}
 --- !u!114 &1117811789
 MonoBehaviour:
@@ -5116,7 +5118,7 @@ MonoBehaviour:
   dryRate: 0.5
   baseGrowthRate: 0.23
   weedChance: 0.2
-  defaultUnlocks: 01000000
+  defaultUnlocks: 0100000005000000
   _buildingView: {fileID: 1885283853}
 --- !u!114 &1117811790
 MonoBehaviour:
@@ -5132,6 +5134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsPerDay: 30
   dayStartTime: 0.2
+  showControlWindow: 1
 --- !u!1001 &1176294896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7665,6 +7668,7 @@ MonoBehaviour:
   hideInEditor: 0
   resourcePrefab: {fileID: 2498516592365991632, guid: 2ef894943aefd0b489b1d237d7128fdd, type: 3}
   content: {fileID: 1417430445}
+  _tabsProperties: []
 --- !u!114 &1833876728
 MonoBehaviour:
   m_ObjectHideFlags: 0

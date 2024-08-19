@@ -676,7 +676,6 @@ MonoBehaviour:
   _isUnlockedByDefault: 0
   _unAvailableBalcony: {fileID: 2030630260}
   _availableBalcony: {fileID: 1161470111}
-  _planterBoxesContainer: {fileID: 1161470112}
 --- !u!1 &32997277
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +868,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1383771174}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &46646795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1098,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 955043650}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &86231591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,7 +1486,6 @@ MonoBehaviour:
   _isUnlockedByDefault: 0
   _unAvailableBalcony: {fileID: 94082521}
   _availableBalcony: {fileID: 882306371}
-  _planterBoxesContainer: {fileID: 882306372}
 --- !u!1 &117766246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,7 +1658,6 @@ MonoBehaviour:
   _isUnlockedByDefault: 0
   _unAvailableBalcony: {fileID: 1004375239}
   _availableBalcony: {fileID: 46646795}
-  _planterBoxesContainer: {fileID: 46646796}
 --- !u!1 &130265907
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,7 +2454,6 @@ MonoBehaviour:
   _isUnlockedByDefault: 0
   _unAvailableBalcony: {fileID: 1563357806}
   _availableBalcony: {fileID: 2093322641}
-  _planterBoxesContainer: {fileID: 2093322642}
 --- !u!1 &233176598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2730,6 +2730,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1165102213}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &241804816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2948,6 +2950,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1225508574}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &252378946
 GameObject:
   m_ObjectHideFlags: 0
@@ -3171,7 +3175,6 @@ MonoBehaviour:
   _isUnlockedByDefault: 0
   _unAvailableBalcony: {fileID: 241804816}
   _availableBalcony: {fileID: 710314682}
-  _planterBoxesContainer: {fileID: 710314683}
 --- !u!1 &297016421
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,7 +3550,6 @@ MonoBehaviour:
   _isUnlockedByDefault: 0
   _unAvailableBalcony: {fileID: 1243482272}
   _availableBalcony: {fileID: 1651995663}
-  _planterBoxesContainer: {fileID: 1651995664}
 --- !u!1 &333813388
 GameObject:
   m_ObjectHideFlags: 0
@@ -4718,6 +4720,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1963120475}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &440195864
 GameObject:
   m_ObjectHideFlags: 0
@@ -5596,6 +5600,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1315223124}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &571716695
 GameObject:
   m_ObjectHideFlags: 0
@@ -5838,6 +5844,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 759289647}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &578415701
 GameObject:
   m_ObjectHideFlags: 0
@@ -6030,6 +6038,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 2054517910}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &618176121
 GameObject:
   m_ObjectHideFlags: 0
@@ -6366,7 +6376,6 @@ MonoBehaviour:
   _isUnlockedByDefault: 0
   _unAvailableBalcony: {fileID: 697109110}
   _availableBalcony: {fileID: 1323835742}
-  _planterBoxesContainer: {fileID: 1323835743}
 --- !u!1 &659291753
 GameObject:
   m_ObjectHideFlags: 0
@@ -6657,6 +6666,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1984009889}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &697109110
 GameObject:
   m_ObjectHideFlags: 0
@@ -7324,6 +7335,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1576768329}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &785656116
 GameObject:
   m_ObjectHideFlags: 0
@@ -7600,6 +7613,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 345621259}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &800444566
 GameObject:
   m_ObjectHideFlags: 0
@@ -7991,6 +8006,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 2001777703}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &860876887
 GameObject:
   m_ObjectHideFlags: 0
@@ -8838,6 +8855,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 899792226}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &912802900
 GameObject:
   m_ObjectHideFlags: 0
@@ -9485,6 +9504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1438844340}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &997809001
 GameObject:
   m_ObjectHideFlags: 0
@@ -10125,6 +10146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1056619840}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1050228089
 GameObject:
   m_ObjectHideFlags: 0
@@ -10180,7 +10203,6 @@ MonoBehaviour:
   _isUnlockedByDefault: 0
   _unAvailableBalcony: {fileID: 364395901}
   _availableBalcony: {fileID: 2009827363}
-  _planterBoxesContainer: {fileID: 2009827364}
 --- !u!1 &1056505869
 GameObject:
   m_ObjectHideFlags: 0
@@ -10289,6 +10311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 912802901}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1056619839
 GameObject:
   m_ObjectHideFlags: 0
@@ -10790,7 +10814,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  testPlant: {fileID: 11400000, guid: 3d1b3bec21eb2e446ad1d48ae15368a7, type: 2}
+  plants:
+  - {fileID: 11400000, guid: 3d1b3bec21eb2e446ad1d48ae15368a7, type: 2}
+  _selectedPlant: {fileID: 0}
 --- !u!114 &1117811789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10806,6 +10832,7 @@ MonoBehaviour:
   dryRate: 0.5
   baseGrowthRate: 0.23
   weedChance: 0.2
+  defaultUnlocks: 02000000
   _buildingView: {fileID: 1885283853}
 --- !u!114 &1117811790
 MonoBehaviour:
@@ -10819,8 +10846,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfe324aad057434497c786d1efda6f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsPerDay: 100
+  secondsPerDay: 15
   dayStartTime: 0.4
+  showControlWindow: 1
 --- !u!1 &1131794154
 GameObject:
   m_ObjectHideFlags: 0
@@ -11159,6 +11187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1695370621}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1161470111
 GameObject:
   m_ObjectHideFlags: 0
@@ -11599,6 +11629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1688792774}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1199596911
 GameObject:
   m_ObjectHideFlags: 0
@@ -12091,6 +12123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 802880253}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1290749080
 GameObject:
   m_ObjectHideFlags: 0
@@ -12398,6 +12432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1928886185}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1323835742
 GameObject:
   m_ObjectHideFlags: 0
@@ -12542,6 +12578,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 424973287}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1346076864
 GameObject:
   m_ObjectHideFlags: 0
@@ -12933,6 +12971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 245517866}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1391754304
 GameObject:
   m_ObjectHideFlags: 0
@@ -13433,6 +13473,7 @@ MonoBehaviour:
   hideOnStart: 1
   hideOnBlur: 1
   hideInEditor: 0
+  questTracker: {fileID: 0}
   questPrefab: {fileID: 4478826446047847159, guid: 9e1dd0f4b49591a45919be36b99df4b1, type: 3}
   content: {fileID: 659291754}
 --- !u!1 &1508747624
@@ -13543,6 +13584,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 625493766}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1521645575
 GameObject:
   m_ObjectHideFlags: 0
@@ -13971,6 +14014,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1456794560}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1549182852
 GameObject:
   m_ObjectHideFlags: 0
@@ -14405,6 +14450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1181277731}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1576768328
 GameObject:
   m_ObjectHideFlags: 0
@@ -14880,6 +14927,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 921554088}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1631602585
 GameObject:
   m_ObjectHideFlags: 0
@@ -15444,6 +15493,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1136927475}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1665007908
 GameObject:
   m_ObjectHideFlags: 0
@@ -15636,6 +15687,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1204699656}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1677094428
 GameObject:
   m_ObjectHideFlags: 0
@@ -15744,6 +15797,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 516365483}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1688792773
 GameObject:
   m_ObjectHideFlags: 0
@@ -15883,6 +15938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1033353838}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1694221659
 GameObject:
   m_ObjectHideFlags: 0
@@ -16553,7 +16610,6 @@ MonoBehaviour:
   _isUnlockedByDefault: 1
   _unAvailableBalcony: {fileID: 213053891}
   _availableBalcony: {fileID: 1156860193}
-  _planterBoxesContainer: {fileID: 1156860194}
 --- !u!1 &1785935552
 GameObject:
   m_ObjectHideFlags: 0
@@ -17248,6 +17304,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1028250951}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!224 &1846406340 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4294800580287208514, guid: 4b583a2e6b7d9f042ae9d246ec46a580, type: 3}
@@ -17361,6 +17419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 91017522}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1861237531
 GameObject:
   m_ObjectHideFlags: 0
@@ -17637,6 +17697,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 405297504}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &1871688085
 GameObject:
   m_ObjectHideFlags: 0
@@ -17852,7 +17914,6 @@ MonoBehaviour:
   _isUnlockedByDefault: 0
   _unAvailableBalcony: {fileID: 1147688758}
   _availableBalcony: {fileID: 2083070849}
-  _planterBoxesContainer: {fileID: 2083070850}
 --- !u!1 &1911568877
 GameObject:
   m_ObjectHideFlags: 0
@@ -17992,7 +18053,6 @@ MonoBehaviour:
   _isUnlockedByDefault: 0
   _unAvailableBalcony: {fileID: 948425058}
   _availableBalcony: {fileID: 151549136}
-  _planterBoxesContainer: {fileID: 151549137}
 --- !u!1 &1919520252
 GameObject:
   m_ObjectHideFlags: 0
@@ -18813,7 +18873,6 @@ MonoBehaviour:
   _isUnlockedByDefault: 0
   _unAvailableBalcony: {fileID: 1555246357}
   _availableBalcony: {fileID: 665956986}
-  _planterBoxesContainer: {fileID: 665956987}
 --- !u!1 &2000969494
 GameObject:
   m_ObjectHideFlags: 0
@@ -19689,6 +19748,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 914848961}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &2054517909
 GameObject:
   m_ObjectHideFlags: 0
@@ -19828,6 +19889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1249638552}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &2083070849
 GameObject:
   m_ObjectHideFlags: 0
@@ -20008,6 +20071,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 1871688086}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!1 &2103702118
 GameObject:
   m_ObjectHideFlags: 0
