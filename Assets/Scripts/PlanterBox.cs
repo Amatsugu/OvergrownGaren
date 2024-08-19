@@ -1,25 +1,39 @@
-using PlanterBoxes;
-
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
-
 using UnityEngine;
 
 public class PlanterBox : MonoBehaviour
 {
+	public Transform planterSlot;
+	public GameObject _markerNeedWater;
+
 	public bool HasCrop => _crop != null;
 	public Plant Crop => _crop;
 
-	public Transform planterSlot;
 
 	private Plant _crop;
 
+	private void Awake()
+	{
+		_markerNeedWater.SetActive(false);
+	}
 
 	public void Plant(PlantDefination plant)
 	{
+		if (_crop)
+		{
+			_crop.WaterValueChanged -= OnWaterValueChanged;
+		}
+		
 		GameManager.Events.InvokeOnCropPlanted(plant);
 		_crop = plant.CreatePlant(planterSlot);
+		
+		_crop.WaterValueChanged += OnWaterValueChanged;
+	}
+
+	private void OnWaterValueChanged(float waterValue)
+	{
+		var isMarkerNeedWaterEnabled = waterValue <= 0;
+		
+		_markerNeedWater.SetActive(isMarkerNeedWaterEnabled);
 	}
 
 	public void Uproot()
@@ -33,6 +47,17 @@ public class PlanterBox : MonoBehaviour
 
 		GameManager.ResourcesService.AddResources(harvest);
 		Destroy(_crop.gameObject);
+
+		_crop.WaterValueChanged -= OnWaterValueChanged;
+		_markerNeedWater.SetActive(false);
+	}
+
+	private void OnDestroy()
+	{
+		if (_crop)
+		{
+			_crop.WaterValueChanged -= OnWaterValueChanged;
+		}
 	}
 
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,8 +7,6 @@ using UnityEngine;
 [RequireComponent(typeof(GrowthController))]
 public class Plant : MonoBehaviour
 {
-	
-
 	public float NormalizedAge => age / plant.maxAge;
 	public bool IsHarvestable => age > plant.maxAge;
 	public bool IsDead => health > 0;
@@ -25,6 +24,8 @@ public class Plant : MonoBehaviour
 	[HideInInspector]
 	public PlantDefination plant;
 
+	public event Action<float> WaterValueChanged; 
+
 	private GrowthController _growthController;
 
 	private void Start()
@@ -40,6 +41,8 @@ public class Plant : MonoBehaviour
 		water -= GameManager.DryRate * Time.deltaTime;
 		if(water < 0)
 			water = 0;
+		
+		WaterValueChanged?.Invoke(water);
 
 		age += Time.deltaTime * growthMulti;
 	}
