@@ -33,6 +33,8 @@ public class GameEvents
 
 	public event Action<ResourceType> OnResourceTypeUnlocked;
 
+	public event Action<QuestDefination> OnQuestBecomeReadyToComplete; 
+
 	public void InvokeOnCropHarvested(PlantDefination plant)
 	{
 		OnCropHarvested?.Invoke(plant);
@@ -91,5 +93,10 @@ public class GameEvents
 	public void InvokeOnResourceTypeUnlocked(ResourceType resource)
 	{
 		OnResourceTypeUnlocked?.Invoke(resource);
+	}
+
+	public void InvokeOnQuestBecomeReadyToComplete(QuestDefination quest)
+	{
+		OnQuestBecomeReadyToComplete?.Invoke(quest);
 	}
 }

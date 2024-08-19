@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,9 +14,10 @@ public class QuestTracker : MonoBehaviour
 	[Header("Windows")]
 	public QuestWindow questsWindow;
 	public NewQuestWindow newQuestWindow;
-
-	private List<QuestDefination> _activeQuests = new();
-	private List<QuestDefination> _completedQuests = new();
+	
+	private readonly List<QuestDefination> _activeQuests = new();
+	private readonly List<QuestDefination> _completedQuests = new();
+	private readonly List<QuestDefination> _notifiedQuests = new();
 
 	private void Awake()
 	{
@@ -32,6 +31,16 @@ public class QuestTracker : MonoBehaviour
 	{
 		if (questsWindow.IsOpen && _activeQuests.Count > 0)
 			questsWindow.ShowQuests(_activeQuests);
+
+		// Bad solution, but who cares, it's a jam
+		foreach (var activeQuest in _activeQuests)
+		{
+			if (!_notifiedQuests.Contains(activeQuest) && CanCompleteQuest(activeQuest))
+			{
+				GameManager.Events.InvokeOnQuestBecomeReadyToComplete(activeQuest);
+				_notifiedQuests.Add(activeQuest);
+			}
+		}
 	}
 
 	void OnDayStart(int _)
