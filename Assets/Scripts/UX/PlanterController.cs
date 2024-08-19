@@ -79,7 +79,7 @@ public class PlanterController : MonoBehaviour
 		}
 		else
 		{
-			if(GameManager.ResourcesService.SpendResource((_selectedPlant.seedResource, 1)))
+			if(GameManager.ResourcesService.SpendResources((_selectedPlant.seedResource, 1)))
 			{
 				planter.Plant(_selectedPlant);
 			}

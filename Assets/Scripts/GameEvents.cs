@@ -25,6 +25,7 @@ public class GameEvents
 	public event Action<ResourceIdentifier, int> OnResourcesAdded;
 
 	public event Action<ResourceIdentifier, int> OnResourcesSpent;
+	public event Action<ResourceIdentifier> OnResourcesChange;
 
 	public event Action<BalconyData> OnBalconyUnlocked;
 
@@ -66,6 +67,11 @@ public class GameEvents
 	{
 		OnResourcesSpent?.Invoke(resource, amountTotal);
 	}
+	public void InvokeResourcesChange(ResourceIdentifier resource)
+	{
+		OnResourcesChange?.Invoke(resource);
+	}
+
 
 	public void InvokeBalconyUnlocked(BalconyData balconyData)
 	{

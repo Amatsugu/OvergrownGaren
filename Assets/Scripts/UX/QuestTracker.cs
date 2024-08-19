@@ -25,11 +25,10 @@ public class QuestTracker : MonoBehaviour
 		newQuestWindow.questTracker = this;
 		questsWindow.questTracker = this;
 		GameManager.Events.OnDayStart += OnDayStart;
-		GameManager.Events.OnResourcesAdded += OnResourceChange;
-		GameManager.Events.OnResourcesSpent += OnResourceChange;
+		GameManager.Events.OnResourcesChange += OnResourceChange;
 	}
 
-	void OnResourceChange(ResourceIdentifier _, int __)
+	void OnResourceChange(ResourceIdentifier _)
 	{
 		if (questsWindow.IsOpen && _activeQuests.Count > 0)
 			questsWindow.ShowQuests(_activeQuests);
@@ -78,7 +77,7 @@ public class QuestTracker : MonoBehaviour
 
 	public static bool CanCompleteQuest(QuestDefination quest)
 	{
-		return GameManager.ResourcesService.IsEnough(quest.deliveryRequirments);
+		return GameManager.ResourcesService.HasResources(quest.deliveryRequirments);
 	}
 
 	public void AbandonQuest(QuestDefination quest)
@@ -92,11 +91,13 @@ public class QuestTracker : MonoBehaviour
 		if (!CanCompleteQuest(quest))
 			return false;
 
+		_completedQuests.Add(quest);
+		_activeQuests.Remove(quest);
 		GameManager.ResourcesService.SpendResources(quest.deliveryRequirments);
 		GameManager.ResourcesService.AddResources(quest.rewards);
 		GameManager.Unlocks.UnlockResources(quest.rewardUnlocks);
-		_completedQuests.Add(quest);
-		_activeQuests.Remove(quest);
+
+		Debug.Log($"Completed Quest: {quest.displayName}");
 		return true;
 	}
 

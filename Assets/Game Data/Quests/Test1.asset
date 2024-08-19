@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 
   deliveryRequirments:
   - type: 3
-    qty: 46
+    qty: 8
   rewards:
   - type: 0
     qty: 85

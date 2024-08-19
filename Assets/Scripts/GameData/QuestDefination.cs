@@ -49,7 +49,14 @@ public class QuestDefination : ScriptableObject
 
 		sb.AppendLine("Requirements:");
 		foreach (var res in deliveryRequirments)
-			sb.Append(res.ToString()).Append(' ');
+		{
+			if (GameManager.ResourcesService.HasResources(res))
+				sb.Append("<color=#00ff00>");
+			else
+				sb.Append("<color=#ff0000>");
+
+			sb.Append(res.ToString()).Append("</color>").Append(' ');
+		}
 
 		return sb;
 	}

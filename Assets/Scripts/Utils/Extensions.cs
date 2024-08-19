@@ -7,6 +7,8 @@ using System.Reflection;
 
 using UnityEngine;
 
+using static UnityEngine.Rendering.DebugUI;
+
 public static class Extensions
 {
 	public static string ToDisplayString<T>(this T value, bool plural = false) where T : Enum
@@ -40,6 +42,16 @@ public static class Extensions
 
 	public static bool IsItem(this ResourceType resource) => resource.Has<ItemAttribute, ResourceType>();
 	public static bool IsSeed(this ResourceType resource) => resource.Has<SeedAttribute, ResourceType>();
+
+	public static ResourceIdentifier GetCost(this ResourceType resource)
+	{
+		var type = typeof(ResourceType);
+		var prop = type.GetField(resource.ToString());
+		var attr = prop.GetCustomAttribute<CostAttribute>();
+		if (attr == null)
+			throw new ArgumentException($"The enum '{resource}' does not have an Cost Attribute", nameof(resource));
+		return (ResourceType.Coins, attr.Cost);
+	}
 
 	public static bool Has<T, E>(this E value) where T : Attribute where E : Enum
 	{

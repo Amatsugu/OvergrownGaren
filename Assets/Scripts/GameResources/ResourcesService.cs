@@ -16,10 +16,10 @@ namespace GameResources
 		public void AddResources(params ResourceIdentifier[] resources)
 		{
 			foreach (var res in resources)
-				AddResource(res);
+				AddResources(res);
 		}
 
-        public bool AddResource(ResourceIdentifier resource)
+        public bool AddResources(ResourceIdentifier resource)
         {
             if (resource.qty < 0)
             {
@@ -42,17 +42,17 @@ namespace GameResources
             }
             
             GameManager.Events.InvokeResourcesAdded(resource, data.Amount);
-            
-            return true;
+			GameManager.Events.InvokeResourcesChange((resource.type, data.Amount));
+			return true;
         }
         
 		public void SpendResources(ResourceIdentifier[] resources)
 		{
 			foreach (var res in resources)
-				SpendResource(res);
+				SpendResources(res);
 		}
 
-        public bool SpendResource(ResourceIdentifier resource)
+        public bool SpendResources(ResourceIdentifier resource)
         {
             if (resource < 0)
             {
@@ -72,10 +72,11 @@ namespace GameResources
             data.Amount -= resource.qty;
             
             GameManager.Events.InvokeResourcesSpent(resource, data.Amount);
+			GameManager.Events.InvokeResourcesChange((resource.type, data.Amount));
             return true;
         }
 
-        public bool IsEnough(ResourceIdentifier resource)
+        public bool HasResources(ResourceIdentifier resource)
         {
             if (!_resourcesMap.TryGetValue(resource.type, out var data))
             {
@@ -85,11 +86,11 @@ namespace GameResources
             return resource < data.Amount;
         }
 
-		public bool IsEnough(ResourceIdentifier[] resources)
+		public bool HasResources(ResourceIdentifier[] resources)
 		{
 			foreach (var resource in resources)
 			{
-				if(!IsEnough(resource))
+				if(!HasResources(resource))
 					return false;
 			}
 			return true;

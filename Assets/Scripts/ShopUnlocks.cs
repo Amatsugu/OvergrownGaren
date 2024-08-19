@@ -2,15 +2,17 @@ using Resources;
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+
 using UnityEngine;
 
 public class ShopUnlocks 
 {
-    private HashSet<ResourceType> unlocks = new HashSet<ResourceType>();
+    private HashSet<ResourceType> _unlocks = new HashSet<ResourceType>();
 
 	public void UnlockResource(ResourceType resourceType)
 	{
-		if(unlocks.Add(resourceType))
+		if(_unlocks.Add(resourceType))
 			GameManager.Events.InvokeOnResourceTypeUnlocked(resourceType);
 	}
 
@@ -22,6 +24,11 @@ public class ShopUnlocks
 
 	public bool IsUnlocked(ResourceType resource)
 	{
-		return unlocks.Contains(resource);
+		return _unlocks.Contains(resource);
+	}
+
+	public ResourceType[] GetUnlocks()
+	{
+		return _unlocks.ToArray();
 	}
 }

@@ -42,18 +42,18 @@ public class PurchaseDisplay : UIHover
 		rTransform.position = balcony.transform.position;
 		_button.onClick.AddListener(() =>
 		{
-			if (!GameManager.ResourcesService.IsEnough(balcony._buildCost))
+			if (!GameManager.ResourcesService.HasResources(balcony._buildCost))
 				return;
 			GameManager.ResourcesService.SpendResources(balcony._buildCost);
 			GameManager.BalconiesService.UnlockBalcony(balcony.Data.Id);
 		});
 
-		_button.interactable = GameManager.ResourcesService.IsEnough(_view._buildCost);
+		_button.interactable = GameManager.ResourcesService.HasResources(_view._buildCost);
 	}
 
 	void OnResourceChanged(ResourceIdentifier _, int __)
 	{
-		_button.interactable = GameManager.ResourcesService.IsEnough(_view._buildCost);
+		_button.interactable = GameManager.ResourcesService.HasResources(_view._buildCost);
 
 	}
 
