@@ -6971,11 +6971,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1490424507}
-  - {fileID: 89728867}
   - {fileID: 1178570109}
   - {fileID: 1436697087}
   - {fileID: 1846406340}
   - {fileID: 207838001}
+  - {fileID: 89728867}
   - {fileID: 1534184901}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

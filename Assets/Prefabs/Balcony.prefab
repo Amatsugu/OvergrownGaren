@@ -47,14 +47,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildCost:
-    type: 0
+  - type: 0
+    qty: 0
+  - type: 0
     qty: 0
   _readyToUnlockByDefault: 0
   _isUnlockedByDefault: 0
   _unAvailableBalcony: {fileID: 4856988803589969594}
   _availableBalcony: {fileID: 6336828000477491863}
-  _isReadyToUnlockMarker: {fileID: 6418208997657699316}
-  _planterBoxesContainer: {fileID: 68615526935985950}
 --- !u!1 &758744217883356522
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3858414588363618787}
   - component: {fileID: 2406658955637946410}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,6 +189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 7485700125106016793}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!61 &5001486332666886817
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -540,7 +542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6454664816158906524}
   - component: {fileID: 5470881931381237008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: UnavailableBalcony
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -744,6 +746,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 8655997136414365913}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!61 &3215307551888066514
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -967,6 +971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planterSlot: {fileID: 6686691054202733410}
+  _markerNeedWater: {fileID: 0}
+  _markerReadyToHarvest: {fileID: 0}
 --- !u!61 &4557631219899487133
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1071,7 +1077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1671110568812203601}
   - component: {fileID: 1391612992570868985}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpriteReady
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1323,7 +1329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 641066864817655557}
   - component: {fileID: 2716189650798610474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
