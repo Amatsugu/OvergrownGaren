@@ -14,6 +14,8 @@ public class PlantDefination : ScriptableObject
 	public float unitCost;
 	public float unitSell;
 	public bool isEvil;
+	public AudioClip plantingSound;
+	public AudioClip harvestingSound;
 	public ResourceIdentifier[] yeild;
 
 	public Plant CreatePlant(Transform location)

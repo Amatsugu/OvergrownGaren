@@ -7,7 +7,7 @@ using System.Linq;
 
 using UnityEngine;
 
-[RequireComponent(typeof(GameManager))]
+[RequireComponent(typeof(GameManager)), RequireComponent(typeof(AudioSource))]
 public class PlanterController : MonoBehaviour
 {
 	public enum UIState
@@ -17,7 +17,7 @@ public class PlanterController : MonoBehaviour
 	}
 
 	public UIState state;
-
+	public AudioClip wateringSound;
 	public PlantDefination[] plants;
 
 	[HideInInspector]
@@ -25,6 +25,7 @@ public class PlanterController : MonoBehaviour
 
 
 	private Dictionary<ResourceType, List<ResourceType>> _seedLookup;
+	private AudioSource _audioSource;
 	// Update is called once per frame
 	private void Update()
 	{
@@ -42,6 +43,9 @@ public class PlanterController : MonoBehaviour
 
 	private void Awake()
 	{
+		_audioSource = GetComponent<AudioSource>();
+		if(_audioSource == null)
+			_audioSource = gameObject.AddComponent<AudioSource>();
 		_seedLookup = new Dictionary<ResourceType, List<ResourceType>>();
 		foreach (var plant in plants)
 		{
@@ -74,10 +78,14 @@ public class PlanterController : MonoBehaviour
 			if (planter.Crop.IsHarvestable)
 			{
 				planter.Harvest();
+				if(planter.Crop.plant.harvestingSound != null)
+					_audioSource.PlayOneShot(planter.Crop.plant.harvestingSound);
 			}
 			else
 			{
 				planter.Crop.Water(5);
+				if(wateringSound != null)
+					_audioSource.PlayOneShot(wateringSound);
 			}
 			
 			return;
@@ -89,6 +97,8 @@ public class PlanterController : MonoBehaviour
 		if(GameManager.ResourcesService.SpendResources((_selectedPlant.seedResource, 1)))
 		{
 			planter.Plant(_selectedPlant);
+			if(_selectedPlant.plantingSound != null)
+				_audioSource.PlayOneShot(_selectedPlant.plantingSound);
 		}
 	}
 
