@@ -9,10 +9,10 @@ using UnityEngine.Audio;
 public class MusicManager : MonoBehaviour
 {
 	public static MusicManager Instance { get; private set; }
-	public AudioClip mainBGM;
 	public GameObject playbackObject;
 	public AudioMixerGroup mixer;
 	public float fadeDuration = 1;
+
 
 	private AudioSource[] _sources;
 	private int _curSource;
@@ -22,13 +22,10 @@ public class MusicManager : MonoBehaviour
 	private float[] _fadeStart;
 	private float[] _fadeStop;
 
-	[Serializable]
-	public struct Music
-	{
-		public AudioClip clip;
-	}
 
-	public List<Music> planetMusic;
+	public List<AudioClip> music;
+
+	private int _curTrack;
 
 	private void Awake()
 	{
@@ -50,6 +47,7 @@ public class MusicManager : MonoBehaviour
 
 	private void Start()
 	{
+		Play(music.First());
 	}
 
 	private void Update()
@@ -61,6 +59,15 @@ public class MusicManager : MonoBehaviour
 		{
 			var t = _fadeTime[i] / fadeDuration;
 			_sources[i].volume = Mathf.Lerp(_fadeStart[i], _fadeStop[i], t);
+		}
+
+
+		var cS = _sources[_curSource];
+		if (!cS.isPlaying)
+		{
+			_curTrack++;
+			_curTrack %= music.Count;
+			Play(music[_curTrack]);
 		}
 
 	}
@@ -118,8 +125,4 @@ public class MusicManager : MonoBehaviour
 	}
 
 
-	public static void PlayMainTheme()
-	{
-		Instance.Play(Instance.mainBGM);
-	}
 }
