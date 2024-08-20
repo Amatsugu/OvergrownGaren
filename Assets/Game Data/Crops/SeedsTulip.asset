@@ -18,6 +18,8 @@ MonoBehaviour:
   unitCost: 0
   unitSell: 0
   isEvil: 0
+  plantingSound: {fileID: 8300000, guid: e5c71734c8461cf4ba9ec853d6e7efb8, type: 3}
+  harvestingSound: {fileID: 8300000, guid: d1c1e14bbc1a7e74992ed9eb9600cfcd, type: 3}
   yeild:
   - type: 17
     qty: 2
