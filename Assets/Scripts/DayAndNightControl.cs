@@ -13,11 +13,12 @@ public class DayAndNightControl : MonoBehaviour
     public Light2D DayLight;
     public Gradient DayLightGradient;
     public GameObject[] lamps; 
-
+    public Transform skydisk;
     private void Update()
     {
         LampController();
         DayLight.color = DayLightGradient.Evaluate(GameManager.TimeController.DayProgress);
+        SkyRotation();
     }
 
     private void LampController()
@@ -37,6 +38,9 @@ public class DayAndNightControl : MonoBehaviour
             }
         }
     }
-    
+    private void SkyRotation()
+    {
+        skydisk.rotation = Quaternion.Euler(0, 0, 360.0f * GameManager.TimeController.DayProgress);
+    }
     
 }
