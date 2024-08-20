@@ -5451,6 +5451,7 @@ MonoBehaviour:
   isHovered: 0
   rTransform: {fileID: 0}
   purchaseDisplayPrefab: {fileID: 4093324833821386813, guid: d100a613b9cd39a46b900d495a04cc5e, type: 3}
+  openSound: {fileID: 8300000, guid: 69e4670386596a942a8b9ae9e646affc, type: 3}
 --- !u!1 &1987472015
 GameObject:
   m_ObjectHideFlags: 0
