@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class UIPanel : UIHover
 {
 	public RectTransform PanelBase { get; private set; }
@@ -11,10 +12,15 @@ public class UIPanel : UIHover
 	public bool hideOnStart = true;
 	public bool hideOnBlur = true;
 	public bool hideInEditor = false;
+	public AudioClip openSound;
+	public AudioClip closeSound;
 
 	public event System.Action OnShow;
 
 	public event System.Action OnHide;
+
+
+	protected AudioSource audioSource;
 
 
 	private bool _showThisFrame;
@@ -25,6 +31,14 @@ public class UIPanel : UIHover
 		{
 			return gameObject?.activeInHierarchy ?? false;
 		}
+	}
+
+	protected override void Awake()
+	{
+		base.Awake();
+		audioSource = GetComponent<AudioSource>();
+		if (audioSource == null)
+			audioSource = gameObject.AddComponent<AudioSource>();
 	}
 
 	protected override void Start()
@@ -68,10 +82,14 @@ public class UIPanel : UIHover
 		_showThisFrame = true;
 		SetActive(true);
 		OnShow?.Invoke();
+		if (openSound != null)
+			audioSource.PlayOneShot(openSound);
 	}
 
 	public virtual void Hide()
 	{
+		if (closeSound != null)
+			audioSource.PlayOneShot(closeSound);
 		SetActive(false);
 		OnHide?.Invoke();
 	}

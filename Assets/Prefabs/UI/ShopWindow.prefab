@@ -681,6 +681,8 @@ MonoBehaviour:
   - TabRoot: {fileID: 4927144272260067459}
     ButtonTab: {fileID: 6339789949620172750}
   buySound: {fileID: 8300000, guid: 6127f3107f0e25e4a918b7359166b94a, type: 3}
+  openSound: {fileID: 8300000, guid: 4e63a448f1ae433449385ea0a58fdc50, type: 3}
+  closeSound: {fileID: 8300000, guid: c891b9d21e598ee4ba3859367650480d, type: 3}
 --- !u!82 &5447955801292949221
 AudioSource:
   m_ObjectHideFlags: 0
