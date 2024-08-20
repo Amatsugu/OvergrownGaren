@@ -82,13 +82,13 @@ public class UIPanel : UIHover
 		_showThisFrame = true;
 		SetActive(true);
 		OnShow?.Invoke();
-		if (openSound != null)
+		if (openSound != null && audioSource != null)
 			audioSource.PlayOneShot(openSound);
 	}
 
 	public virtual void Hide()
 	{
-		if (closeSound != null)
+		if (closeSound != null && audioSource != null)
 			audioSource.PlayOneShot(closeSound);
 		SetActive(false);
 		OnHide?.Invoke();

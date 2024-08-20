@@ -9,6 +9,11 @@ public class QuestWindow : UIPanel
 	public QuestTracker questTracker;
 	public QuestDisplay questPrefab;
 	public RectTransform content;
+
+	protected override void Awake()
+	{
+		base.Awake();
+	}
 	public void ShowQuests(IEnumerable<QuestDefination> activeQuests)
 	{
 		DestroyChildren(content);
