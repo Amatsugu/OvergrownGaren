@@ -98,22 +98,22 @@ MonoBehaviour:
   DayLight: {fileID: 7963102410833685569}
   DayLightGradient:
     serializedVersion: 2
-    key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0.8037735, g: 0.74722666, b: 0.37458876, a: 1}
-    key2: {r: 1, g: 0.9398874, b: 0.57169807, a: 0}
-    key3: {r: 0.96981126, g: 0.44614485, b: 0, a: 0}
-    key4: {r: 0.2754717, g: 0, b: 0.011976961, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 20844
-    ctime1: 29321
-    ctime2: 52423
-    ctime3: 56476
-    ctime4: 61227
-    ctime5: 65139
-    ctime6: 0
-    ctime7: 0
+    key0: {r: 0.31372374, g: 0.35935742, b: 0.8867924, a: 1}
+    key1: {r: 0.45835343, g: 0.39279994, b: 0.8584906, a: 1}
+    key2: {r: 1, g: 0.8580371, b: 0.6650944, a: 0}
+    key3: {r: 1, g: 1, b: 1, a: 0}
+    key4: {r: 1, g: 1, b: 1, a: 0}
+    key5: {r: 1, g: 0.79426706, b: 0.6179246, a: 0}
+    key6: {r: 1, g: 0.3537736, b: 0.38146904, a: 0}
+    key7: {r: 0.3137255, g: 0.36078432, b: 0.8862745, a: 0}
+    ctime0: 0
+    ctime1: 7517
+    ctime2: 19661
+    ctime3: 26792
+    ctime4: 45104
+    ctime5: 53006
+    ctime6: 55319
+    ctime7: 65139
     atime0: 0
     atime1: 65535
     atime2: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
     atime7: 0
     m_Mode: 0
     m_ColorSpace: -1
-    m_NumColorKeys: 6
+    m_NumColorKeys: 8
     m_NumAlphaKeys: 2
   lamps: []
+  skydisk: {fileID: 0}
