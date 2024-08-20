@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d8ae58cc0371841a3bffae964e747a, type: 3}
   m_Name: Quest4
   m_EditorClassIdentifier: 
-  displayName: What does a Magnolia think?
-  description: Dessert of a plant.
+  displayName: What Does The Magnolia Dream?
+  description: "Magnolia is a flower of passion. Other plants I would describe as
+    beautiful but Magnolia? No no no.... Magnolia is innocent. If I get to be a flower
+    in another life and I get to choose which one I will turn into, Magnolia is my
+    absolute choice. I wonder though, what does su\u0131ch innocence dream of? Ambition
+    is corrosive and every dream is an ambition. What is better, to be the Magnolia
+    or the Datura?"
   deliveryRequirments:
   - type: 20
     qty: 30

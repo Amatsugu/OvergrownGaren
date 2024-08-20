@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Experiments
   description: Shopkeeper revealed his secrets to me! I must plant Scarlet Ribbons
-    and a Damocles Rose together!
+    and a Damocles Rose together to get an exceptional plants and seeds. He even
+    used the word "Magical". Am I finally getting my magical beanstalk?!
   deliveryRequirments:
   - type: 10
     qty: 3

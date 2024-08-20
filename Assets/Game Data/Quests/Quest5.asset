@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: The Fine Line
   description: There is a fine line between fancy magenta and the violent scarlet.
     I can't find any information about this one but the shopkeeper told me it's a
-    looker and a half!
+    looker and a half! He seemed a little off though. I hope he isn't ill or anything.
   deliveryRequirments:
   - type: 24
     qty: 10

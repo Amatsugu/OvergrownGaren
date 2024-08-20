@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Quest6
   m_EditorClassIdentifier: 
   displayName: Rose of Damocles
-  description: A rare variant, how lucky of me!
+  description: If botany was a trading card game, Rose of Damocles would be a holographic
+    Rose. How lucky of me! Shopkeeper keeps all of his exceptional seeds to me. He
+    seems to get less customers day by day though. Shop only gets more desolate by
+    the day. My guess would be that his illness prevents him from working properly.
+    Poor guy gives all his attention to me so I will have to make sure that this
+    Rose of Damocles grows like a king.
   deliveryRequirments:
   - type: 10
     qty: 15

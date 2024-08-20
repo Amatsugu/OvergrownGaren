@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Quest8
   m_EditorClassIdentifier: 
   displayName: Experiments II
-  description: Huh?...What a strange little plant. It looks...sad? Wonder what happens
-    if I plant it together with Datura seeds...
+  description: Huh?...What a strange little plant. It looks...sad? It needs ambition.
+    Wonder what happens if I plant it together with Datura seeds...
   deliveryRequirments:
   - type: 12
     qty: 5
