@@ -10,12 +10,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class QuestNotifications : MonoBehaviour
 {
 	public RectTransform _root;
 	public TMP_Text _textQuestTitle;
 	public TMP_Text _textNotifTitle;
 	public Button _btn;
+	public AudioClip notifSound;
+	public AudioClip newQuestSound;
+	public AudioClip questCompletSound;
+	public AudioClip shopSound;
 
 	[HideInInspector]
 	public QuestTracker _questTracker;
@@ -29,6 +34,7 @@ public class QuestNotifications : MonoBehaviour
 	private NotifType _notifType;
 
 	private List<Notif> _notifQueue = new();
+	private AudioSource _audioSource;
 
 	private class Notif
 	{
@@ -85,6 +91,10 @@ public class QuestNotifications : MonoBehaviour
 		_root.anchoredPosition = _hiddenPosition;
 		_questTracker = FindAnyObjectByType<QuestTracker>();
 		_shopUI = FindAnyObjectByType<ShopUI>(FindObjectsInactive.Include);
+
+		_audioSource = GetComponent<AudioSource>();
+		if (_audioSource == null)
+			_audioSource = gameObject.AddComponent<AudioSource>();
 	}
 
 	private void Start()
@@ -112,7 +122,7 @@ public class QuestNotifications : MonoBehaviour
 
 	private void OnDayStart(int _)
 	{
-		if(_questTracker.HasQuests())
+		if (_questTracker.HasQuests())
 			_notifQueue.Add(new Notif());
 	}
 
@@ -124,7 +134,8 @@ public class QuestNotifications : MonoBehaviour
 	private void OnClick()
 	{
 		Hide();
-		switch(_notifType){
+		switch (_notifType)
+		{
 			case NotifType.Quest:
 				_questTracker.ShowQuests();
 				_notifQueue.RemoveAll(n => n.type == NotifType.Quest);
@@ -139,7 +150,6 @@ public class QuestNotifications : MonoBehaviour
 				_shopUI.Show();
 				_notifQueue.RemoveAll(n => n.type == NotifType.Shop);
 				break;
-
 		}
 	}
 
@@ -153,7 +163,6 @@ public class QuestNotifications : MonoBehaviour
 		_notifQueue.RemoveAt(0);
 
 		ShowNotif(notif);
-
 	}
 
 	private void ShowNotif(Notif notif)
@@ -162,12 +171,33 @@ public class QuestNotifications : MonoBehaviour
 		_textQuestTitle.text = notif.subtitle;
 		_notifType = notif.type;
 		Show();
+		switch (notif.type)
+		{
+			case NotifType.Quest:
+				if (questCompletSound != null)
+					_audioSource.PlayOneShot(questCompletSound);
+				break;
+
+			case NotifType.NewQuests:
+				if (newQuestSound != null)
+					_audioSource.PlayOneShot(newQuestSound);
+				break;
+
+			case NotifType.Shop:
+				if (shopSound != null)
+					_audioSource.PlayOneShot(shopSound);
+				break;
+
+			default:
+				if (notifSound != null)
+					_audioSource.PlayOneShot(notifSound);
+				break;
+		}
 	}
 
 	private void Show()
 	{
 		_sequence?.Kill();
-
 		_root.gameObject.SetActive(true);
 		_root.anchoredPosition = _hiddenPosition;
 

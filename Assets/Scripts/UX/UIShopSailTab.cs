@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 namespace UX
 {
+	[RequireComponent(typeof(AudioSource))]
     public class UIShopSailTab : MonoBehaviour
     {
         public WidgetResource _prefab;
@@ -16,12 +17,25 @@ namespace UX
         public Button _btnSellAll;
         public TMP_Text _textPriceOne;
         public TMP_Text _textPriceAll;
-        
 
-        private readonly List<WidgetResource> _widgets = new();
+		public AudioClip sellSound;
+		public AudioClip sellAllSound;
+
+
+		private readonly List<WidgetResource> _widgets = new();
         private WidgetResource _selectedWidget;
-        
-        private void OnEnable()
+
+		private AudioSource _audioSource;
+
+		private void Awake()
+		{
+			_audioSource = GetComponent<AudioSource>();
+			if( _audioSource == null )
+				_audioSource = gameObject.AddComponent<AudioSource>();
+
+		}
+
+		private void OnEnable()
         {
             RefreshResources();
             
@@ -96,7 +110,8 @@ namespace UX
             
             GameManager.ResourcesService.AddResources((ResourceType.Coins, _selectedWidget.ResourceType.GetCost().qty));
             GameManager.ResourcesService.SpendResources((_selectedWidget.ResourceType,1));
-
+			if(sellSound != null)
+				_audioSource.PlayOneShot(sellSound);
             if (GameManager.ResourcesService.GetAmount(_selectedWidget.ResourceType) <= 0)
             {
                 Destroy(_selectedWidget);
@@ -116,7 +131,9 @@ namespace UX
             var amount = GameManager.ResourcesService.GetAmount(_selectedWidget.ResourceType);
             GameManager.ResourcesService.AddResources((ResourceType.Coins, _selectedWidget.ResourceType.GetCost().qty * amount));
             GameManager.ResourcesService.SpendResources((_selectedWidget.ResourceType,amount));
-            Destroy(_selectedWidget);
+			if (sellAllSound != null)
+				_audioSource.PlayOneShot(sellAllSound);
+			Destroy(_selectedWidget);
             _selectedWidget = null;
             _btnSellAll.gameObject.SetActive(false);
             _btnSellOne.gameObject.SetActive(false);
