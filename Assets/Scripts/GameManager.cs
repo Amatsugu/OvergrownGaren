@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 	public float baseGrowthRate = .5f;
 	public float weedChance = .2f;
 	public ResourceType[] defaultUnlocks;
+	public ResourceIdentifier[] startingInventory = new ResourceIdentifier[] { (ResourceType.SeedsCommon, 3) };
 
 	public BuildingView _buildingView;
 
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
 	{
 		// Initial state
 		var buildingData = new BuildingData();
-		_resourcesService.AddResources((ResourceType.Coins, 0), (ResourceType.SeedsCommon, 3));
+		_resourcesService.AddResources(startingInventory);
 		_balconiesService = new BalconiesService(buildingData, _resourcesService);
 
 		Unlocks.UnlockResources(defaultUnlocks);

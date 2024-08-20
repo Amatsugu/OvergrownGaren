@@ -57,7 +57,6 @@ namespace Building
 				return;
             var hitBalcony = hit.collider.GetComponentInParent<BalconyView>();
 
-			Debug.Log(hit.collider.gameObject.name, hit.collider);
             if (hitBalcony)
             {
                 GameManager.BalconiesService.MarkReadyToUnlock(hitBalcony.Data.Id);
