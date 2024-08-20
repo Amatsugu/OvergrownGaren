@@ -26,5 +26,5 @@ MonoBehaviour:
     qty: 1000
   rewards:
   - type: 21
-    qty: 0
+    qty: 1
   rewardUnlocks: 
