@@ -10,16 +10,24 @@ public class ShopTabProperties
 	public Button ButtonTab;
 }
 
+[RequireComponent(typeof(AudioSource))]
 public class ShopUI : UIPanel
 {
 	public ShopResource resourcePrefab;
 	public RectTransform content;
 	public ShopTabProperties[] _tabsProperties;
+	public AudioClip buySound;
 	
 	private List<ShopResource> _shopItems = new();
+
+
+	private AudioSource _shopAudioSource;
 	// Start is called before the first frame update
 	protected override void Start()
 	{
+		_shopAudioSource = GetComponent<AudioSource>();
+		if(_shopAudioSource == null)
+			_shopAudioSource = gameObject.AddComponent<AudioSource>();
 		base.Start();
 		GameManager.Events.OnResourcesChange += RefreshIcons;
 	}
@@ -50,6 +58,8 @@ public class ShopUI : UIPanel
 			var btn = item.GetComponent<Button>();
 			btn.onClick.AddListener(() =>
 			{
+				if(buySound != null)
+					_shopAudioSource.PlayOneShot(buySound);
 				if (GameManager.ResourcesService.SpendResources(resource.GetCost()))
 					GameManager.ResourcesService.AddResources((resource, 1));
 			});
