@@ -14,8 +14,8 @@ public class GrowthController : MonoBehaviour
 	public virtual void OnGrow(float normalizedAge, bool isDead)
 	{
 		normalizedAge = math.clamp(normalizedAge, 0, 1);
-		var scale = sprite.localScale;
-		scale.y = math.lerp(minSize, maxSize, curve.Evaluate(normalizedAge));
+		var s = math.lerp(minSize, maxSize, curve.Evaluate(normalizedAge));
+		var scale = new Vector3(s, s, s);
 		sprite.localScale = scale;
 	}
 }

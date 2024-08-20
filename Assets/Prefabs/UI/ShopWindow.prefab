@@ -680,7 +680,7 @@ MonoBehaviour:
     ButtonTab: {fileID: 990201545765984640}
   - TabRoot: {fileID: 4927144272260067459}
     ButtonTab: {fileID: 6339789949620172750}
-  buySound: {fileID: 8300000, guid: eea694512bc91f246a02205eb6b712c8, type: 3}
+  buySound: {fileID: 8300000, guid: 6127f3107f0e25e4a918b7359166b94a, type: 3}
 --- !u!82 &5447955801292949221
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1224,8 +1224,8 @@ MonoBehaviour:
   _btnSellAll: {fileID: 9172541846680771}
   _textPriceOne: {fileID: 7409906663934719862}
   _textPriceAll: {fileID: 8971027747541387287}
-  sellSound: {fileID: 8300000, guid: c9cda5713e94d19408981e80b5e52e64, type: 3}
-  sellAllSound: {fileID: 8300000, guid: f46d8ca81b9e30a4182f0cec443fb414, type: 3}
+  sellSound: {fileID: 8300000, guid: 78f572bbf26540f41a049d56f5fd0158, type: 3}
+  sellAllSound: {fileID: 8300000, guid: 69e537350b134f84fa4a3abe72b734f4, type: 3}
 --- !u!82 &1401892859231704922
 AudioSource:
   m_ObjectHideFlags: 0

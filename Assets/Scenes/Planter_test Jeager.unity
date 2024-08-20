@@ -4948,6 +4948,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Music
       objectReference: {fileID: 0}
+    - target: {fileID: 5190958473235073535, guid: 0e779a6e9679e7b49ae2587e8fb0ad70, type: 3}
+      propertyPath: music.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190958473235073535, guid: 0e779a6e9679e7b49ae2587e8fb0ad70, type: 3}
+      propertyPath: music.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e77e8f361733b824783d34962de07b9d, type: 3}
+    - target: {fileID: 5190958473235073535, guid: 0e779a6e9679e7b49ae2587e8fb0ad70, type: 3}
+      propertyPath: music.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 116115bc67735cc4da06a133df904a57, type: 3}
+    - target: {fileID: 5190958473235073535, guid: 0e779a6e9679e7b49ae2587e8fb0ad70, type: 3}
+      propertyPath: music.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: ccf1c7358bd42da418c67a6a9fcbf294, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -265,9 +265,9 @@ MonoBehaviour:
   _textQuestTitle: {fileID: 4320716606369234632}
   _textNotifTitle: {fileID: 5707330429806020303}
   _btn: {fileID: 2379026330262575629}
-  notifSound: {fileID: 8300000, guid: 96d57a8ab1d49d541bbb5b716f9fd190, type: 3}
-  newQuestSound: {fileID: 8300000, guid: 31f96aaa4c12d9d49bdfd1d3ee7a39c6, type: 3}
-  questCompletSound: {fileID: 8300000, guid: b9f7ef0277ff47e4b989e787793af437, type: 3}
+  notifSound: {fileID: 8300000, guid: 5a70e8d4cf94484438a5e0431cc2ba82, type: 3}
+  newQuestSound: {fileID: 8300000, guid: a6910de476c482d40baa0e60fdd2ccea, type: 3}
+  questCompletSound: {fileID: 8300000, guid: 90fa3b86173266d48af26c712774a48a, type: 3}
   shopSound: {fileID: 0}
   _questTracker: {fileID: 0}
   _shopUI: {fileID: 0}
