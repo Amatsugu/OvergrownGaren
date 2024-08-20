@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c209d19040e60344a78d48e42f68d07, type: 3}
   m_Name: SeedsDatura
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4371213790100000826, guid: 0f588062be0b8eb44a395f581e090652, type: 3}
+  prefab: {fileID: 0}
   seedResource: 7
   maxAge: 3
   unitCost: 0
   unitSell: 0
   isEvil: 1
-  plantingSound: {fileID: 8300000, guid: 6a6097f9b69e14e449b096544a5438a8, type: 3}
-  harvestingSound: {fileID: 8300000, guid: 36bb8179fa1b88145b5c2b42e7e80759, type: 3}
+  plantingSound: {fileID: 8300000, guid: 6803f44f8f320f046bd02a5ad35c7f90, type: 3}
+  harvestingSound: {fileID: 8300000, guid: 6a6097f9b69e14e449b096544a5438a8, type: 3}
   yeild:
   - type: 8
     qty: 2
