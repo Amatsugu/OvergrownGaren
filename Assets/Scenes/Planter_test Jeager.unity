@@ -3035,6 +3035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  wateringSound: {fileID: 8300000, guid: 68260b19f84b4894bb7be25da5dc453d, type: 3}
   plants:
   - {fileID: 11400000, guid: c28c68ca274ad9546a2e5229ccd6f2dd, type: 2}
   - {fileID: 11400000, guid: 06dd4986bc0554744a19f8935698ea9e, type: 2}
