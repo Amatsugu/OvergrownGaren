@@ -7,18 +7,25 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class PurchaseUI : UIHover
 {
 	public PurchaseDisplay purchaseDisplayPrefab;
+	public AudioClip openSound;
 
 	private List<PurchaseDisplay> _purchaseDisplays = new();
 	private bool _isPurchasing = false;
+
+	private AudioSource _audioSource;
 
 	// Start is called before the first frame update
 	protected override void Start()
 	{
 		base.Start();
 		GameManager.Events.OnBalconyUnlocked += OnBalconyUnlocked;
+		_audioSource = GetComponent<AudioSource>();
+		if(_audioSource == null)
+			_audioSource = gameObject.AddComponent<AudioSource>();
 	}
 
 	private void OnBalconyUnlocked(BalconyData _)
@@ -44,6 +51,8 @@ public class PurchaseUI : UIHover
 	{
 		ShowDisplays();
 		_isPurchasing = true;
+		if (openSound != null)
+			_audioSource.PlayOneShot(openSound);
 	}
 
 
