@@ -262,6 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _root: {fileID: 3842442587863533148}
   _textQuestTitle: {fileID: 4320716606369234632}
+  _textNotifTitle: {fileID: 5707330429806020303}
   _btn: {fileID: 2379026330262575629}
   _questTracker: {fileID: 0}
   _shopUI: {fileID: 0}

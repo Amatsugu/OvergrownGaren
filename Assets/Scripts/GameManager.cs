@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 	public static TimeController TimeController => INST._timeController;
 	public static ShopUnlocks Unlocks => INST._shopUnlocks;
 	public static PlanterController PlanterController => INST._planterController;
+	public static QuestNotifications Notifications => INST._notifs;
 
 	public static GameManager INST
 	{
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
 	private ShopUI _shopUI;
 	private QuestWindow _questWindow;
 	private QuestTracker _questTracker;
+	private QuestNotifications _notifs;
 
 	private void Awake()
 	{
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
 		_shopUI = FindAnyObjectByType<ShopUI>(FindObjectsInactive.Include);
 		_questWindow = FindAnyObjectByType<QuestWindow>(FindObjectsInactive.Include);
 		_questTracker = FindAnyObjectByType<QuestTracker>(FindObjectsInactive.Include);
+		_notifs = FindAnyObjectByType<QuestNotifications>(FindObjectsInactive.Include);
 	}
 
 	private void Start()

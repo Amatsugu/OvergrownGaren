@@ -23,7 +23,6 @@ public class QuestTracker : MonoBehaviour
 	{
 		newQuestWindow.questTracker = this;
 		questsWindow.questTracker = this;
-		GameManager.Events.OnDayStart += OnDayStart;
 		GameManager.Events.OnResourcesChange += OnResourceChange;
 	}
 
@@ -43,13 +42,12 @@ public class QuestTracker : MonoBehaviour
 		}
 	}
 
-	void OnDayStart(int _)
+
+	public bool HasQuests()
 	{
 		if (_activeQuests.Count >= maxAcceptedQuests)
-			return;
-
-		questsWindow.Hide();
-		newQuestWindow.ShowQuests(GetEligableQuests());
+			return false;
+		return GetEligableQuests().Any();
 	}
 
 	public IEnumerable<QuestDefination> GetEligableQuests()

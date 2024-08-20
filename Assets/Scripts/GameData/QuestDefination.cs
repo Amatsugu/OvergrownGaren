@@ -2,6 +2,7 @@ using Resources;
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 using UnityEngine;
@@ -22,6 +23,8 @@ public class QuestDefination : ScriptableObject
 		var sb = new StringBuilder();
 		foreach (var reward in rewards)
 			sb.AppendLine(reward.ToString());
+		if(rewardUnlocks.Length > 0)
+			sb.Append("Unlocks: ").AppendLine(string.Join("", rewardUnlocks.Select(r => r.GetSprite())));
 		return sb;
 	}
 
