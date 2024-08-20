@@ -45,11 +45,17 @@ public class GameManager : MonoBehaviour
 	private BalconiesService _balconiesService;
 	private TimeController _timeController;
 	private PlanterController _planterController;
+	private ShopUI _shopUI;
+	private QuestWindow _questWindow;
+	private QuestTracker _questTracker;
 
 	private void Awake()
 	{
 		_timeController = GetComponent<TimeController>();
 		_planterController = GetComponent<PlanterController>();
+		_shopUI = FindAnyObjectByType<ShopUI>(FindObjectsInactive.Include);
+		_questWindow = FindAnyObjectByType<QuestWindow>(FindObjectsInactive.Include);
+		_questTracker = FindAnyObjectByType<QuestTracker>(FindObjectsInactive.Include);
 	}
 
 	private void Start()
@@ -63,5 +69,23 @@ public class GameManager : MonoBehaviour
 
 		// View bindings
 		_buildingView.Bind(buildingData);
+	}
+
+	private void Update()
+	{
+		if(Input.GetKeyUp(KeyCode.E))
+		{
+			if(_shopUI.IsOpen)
+				_shopUI.Hide();
+			else
+				_shopUI.Show();
+		}
+		if (Input.GetKeyUp(KeyCode.Q))
+		{
+			if (_questWindow.IsOpen)
+				_questWindow.Hide();
+			else
+				_questTracker.ShowQuests();
+		}
 	}
 }
